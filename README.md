@@ -1,4 +1,8 @@
 # PlamensPython
+<h3>Get into a shape with Softuni judge system</h3>
+<p>https://judge.softuni.bg/</p>
+
+
 <h3>Links for the course, january and july 2016:</h3>
 <p>https://softuni.bg/trainings/1281/python-programming-january-2016</p>
 <p>https://softuni.bg/trainings/1402/python-programming-july-2016</p> 

@@ -86,9 +86,6 @@ people = [
     },
 ]
 
-male = [];
-female = [];
-
 for person_index, person_A in enumerate(people):
     for person_B in people[person_index + 1:]:
         if(person_A['gender'] == person_B['gender']):
@@ -99,6 +96,6 @@ for person_index, person_A in enumerate(people):
         name_person_A = person_A['name']
 
 
-        common_interest = set_person_A.intersection(set_person_B)
+        common_interest = set_person_A.intersection(set_person_B) #if interest are the same
         if len(common_interest) > 0:  # if they have mutual interests
             print('{} и {} имат общ интерес и той/те са - {}'.format(person_A['name'], person_B['name'], common_interest))

@@ -121,8 +121,24 @@ people = [
     },
 ]
 
-for index, person_A in enumerate(people):
-    for person_B in people[index + 1:]:
-        set_of_ex_person_A = set(person_A['ex'])
-        set_of_ex_person_B = set(person_B['ex'])
-        if(person_A['gender'] == 'male' and  )
+
+for person_index, person_A in enumerate(people):
+    for person_B in people[person_index + 1:]:
+        if(person_A['gender'] == person_B['gender']):
+            continue
+        common_interest = []
+        set_person_interests_A = set(person_A['interests']) #cast person_A interests to set
+        set_person_interests_B = set(person_B['interests']) #cast person_B interests to set
+        set_person_ex_A = set(person_A['ex']) #cast person_A ex relashionships to set
+        set_person_ex_B = set(person_B['ex']) #cast person_B relashionshipsto set
+
+        common_interest = set_person_interests_A.intersection(set_person_interests_B)
+        if len(common_interest) > 0:  # if they have mutual interests
+            the_diff_in_years = abs(int(person_A['age']) - int(person_B['age']))
+            ex_relashionships = set_person_ex_A.difference(set_person_ex_B)
+            print(ex_relashionships)
+            if(the_diff_in_years >= 6): # if the difference between years is more than 6
+                continue
+            elif(len(ex_relashionships) > 0):
+                print('{} и {} имат общ интерес и той/те са - {} and years difference between them is: {}'.format(person_A['name'], person_B['name'], common_interest, the_diff_in_years))
+                print('Their ex are: {} '.format(ex_relashionships))
