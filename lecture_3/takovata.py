@@ -38,7 +38,8 @@ print(b)
 """
 
 
-""" - 4 Parameters with value by default
+""" - 4 Parameters with value by default always
+        after the parameters without default value
 
 def bigger(param1, param2 = 23):
     if param1 > param2:
@@ -49,9 +50,7 @@ print(result)
 
 """
 
-""" - 5 Named parameters as tuple
-
-"""
+""" - 5 Named parameters and required
 
 def send_email(subject, body,  from_email, to_email, cc_email, attachments):
     print(subject)
@@ -64,15 +63,43 @@ def send_email(subject, body,  from_email, to_email, cc_email, attachments):
 send_email(
 
     subject='What is your name and what it means?',
-    body = """
-    My name is Plamen Hristov, What is your name '
-and what it means? I am from Dupnitsa, Bulgaria.
-Where are you from? What is your name and what it means? \n""",
+    body =     
+   'My name is Plamen Hristov, What is your name ' +
+'and what it means? I am from Dupnitsa, Bulgaria.' +
+'Where are you from? What is your name and what it means? \n',
     from_email='from_email: plamen.hristov@ymail.com',
     to_email='to_email: paxi@mail.bg',
     cc_email='cc_email: paxhristov@yahoo.com',
     attachments=None
 
 )
+"""
+
+""" - 6 Functions with number of argumentes *arg 
+def sum_numbers(*args): 
+    total = 0
+    for n in args:
+        total += n
+    return total
 
 
+result1 = sum_numbers(1,2)
+result2 = sum_numbers(1,2,3)
+result3 = sum_numbers(1,2,3,4)
+result4 = sum_numbers(1,2,3,4,5)
+print(result1)
+print(result2)
+print(result3)
+print(result4)
+
+print(result1 + result2 + result3 + result4)
+
+"""
+
+"""  6 Functions with number of argumentes **kwards
+
+"""
+
+""" - 7 Annotaions for parametars and returened type of the value
+
+"""
