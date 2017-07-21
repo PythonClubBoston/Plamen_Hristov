@@ -38,6 +38,13 @@ print(b)
 """
 
 
-""" - 4
+""" - 4 Parameters with value by default
 
 """
+
+def bigger(param1, param2 = 23):
+    if param1 > param2:
+        return param1
+    return  param2
+result = bigger(34)
+print(result)
