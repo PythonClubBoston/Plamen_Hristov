@@ -76,12 +76,12 @@ send_email(
 """
 
 """ - 6 Functions with number of argumentes *arg 
-def sum_numbers(*args): 
+def sum_numbers(*args): # the name of the args is optional
+#we can use for examples instead *args -> *options, *args is smth like convetion
     total = 0
     for n in args:
         total += n
     return total
-
 
 result1 = sum_numbers(1,2)
 result2 = sum_numbers(1,2,3)
@@ -96,10 +96,20 @@ print(result1 + result2 + result3 + result4)
 
 """
 
-"""  6 Functions with number of argumentes **kwards
+""" - 7 Functions with number of argumentes **kwards
+
+def pretty_print_record(**kwargs): # kwards will be a regular dictionary
+    print("Record:")
+    for key, value in kwargs.items():
+        print("\t", key, "= ", value)
+pretty_print_record(name="Plamen", distance_au = 23.34, diameter = 222)
 
 """
 
-""" - 7 Annotaions for parametars and returened type of the value
+
+
+
+
+""" - 8 Annotaions for parametars and returened type of the value
 
 """
