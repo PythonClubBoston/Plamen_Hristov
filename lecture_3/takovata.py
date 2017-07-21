@@ -106,10 +106,28 @@ pretty_print_record(name="Plamen", distance_au = 23.34, diameter = 222)
 
 """
 
+""" - 8 Call functions with *args and **kwargs
+def format_with_indent(format_string, *args, indent: int=None, indent_with: str=" ", **kwargs):
+    if indent is not None:
+        indent_str = indent_with * indent  # will multiply the indent string
+    else:
+        indent_str = ""
+    return indent_str + format_string.format(*args, **kwargs)
 
+...
 
+print(format_with_indent("Name: {}, Role: {role}", 'Boris', role='lecturer'))    
 
+print(format_with_indent("Name: {}, Role: {role}", 'Boris', role='lecturer', indent=4))    
 
-""" - 8 Annotaions for parametars and returened type of the value
+print(format_with_indent("Name: {}, Role: {role}", 'Boris', role='lecturer', indent=4, indent_with='-'))
 
 """
+""" - 9 Annotaions for parametars and returened type of the value
+
+"""
+
+def convert_fahrenheit_to_celsiusd(deg_f: float): # no errors raised if you placed a wrong type of the data
+    return (deg_f - 32)/1.8
+result = convert_fahrenheit_to_celsiusd(33.02)
+print(type(result))
