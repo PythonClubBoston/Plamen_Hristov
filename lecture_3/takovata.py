@@ -157,9 +157,6 @@ print(degrees_f)  # error грешка - degrees_f е параметър на ф
 
 """ - 12 Exceptions, raising and process 
 
-
-"""
-
 people = [{'name': "Мария", 'gender': "female", 'age': 32}, {'name': "Калоян", 'gender': "male", 'age': 33}, ]
 
 ...
@@ -178,3 +175,15 @@ def print_people(people: list):
         print_person(person)
 
 print_people(people)
+
+
+"""
+
+""" - 13 Working with text files !!!!!!!
+
+"""
+
+salve_mea_lyrics = open('./takovata.txt')
+for line in salve_mea_lyrics:
+    print(line)
+salve_mea_lyrics.close()
