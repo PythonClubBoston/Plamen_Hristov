@@ -125,9 +125,22 @@ print(format_with_indent("Name: {}, Role: {role}", 'Boris', role='lecturer', ind
 """
 """ - 9 Annotaions for parametars and returened type of the value
 
-"""
-
 def convert_fahrenheit_to_celsiusd(deg_f: float): # no errors raised if you placed a wrong type of the data
     return (deg_f - 32)/1.8
 result = convert_fahrenheit_to_celsiusd(33.02)
 print(type(result))
+
+"""
+
+""" - 10 - Functions in Python are values
+
+def convert_fahrenheit_to_celsiusd(deg_f: float): # no errors raised if you placed a wrong type of the data
+    return (deg_f - 32)/1.8
+
+test_function = convert_fahrenheit_to_celsiusd
+
+print(test_function(32))
+
+"""
+
+
