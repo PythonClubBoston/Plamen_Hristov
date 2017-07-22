@@ -143,4 +143,11 @@ print(test_function(32))
 
 """
 
-
+""" 11 - Functions and Scope of the variables 
+"""
+def convert_farenheit_to_celsius(degrees_f):
+    degrees_c = (degrees_f - 32)/1.8
+    return degrees_c
+print(convert_farenheit_to_celsius(32))
+print(degrees_c)  # error грешка - променливата degrees_c е дефинирана във функцията, и тук не съществува
+print(degrees_f)  # error грешка - degrees_f е параметър на функцията, и тук не съществува
