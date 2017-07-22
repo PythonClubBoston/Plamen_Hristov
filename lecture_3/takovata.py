@@ -181,9 +181,13 @@ print_people(people)
 
 """ - 13 Working with text files !!!!!!!
 
-"""
-
 salve_mea_lyrics = open('./takovata.txt')
 for line in salve_mea_lyrics:
     print(line)
 salve_mea_lyrics.close()
+
+"""
+
+with open('./takovata.txt') as salve_mea_lyrics:
+    for line in salve_mea_lyrics:
+        print(line)
