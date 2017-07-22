@@ -144,10 +144,37 @@ print(test_function(32))
 """
 
 """ 11 - Functions and Scope of the variables 
-"""
+
 def convert_farenheit_to_celsius(degrees_f):
     degrees_c = (degrees_f - 32)/1.8
     return degrees_c
 print(convert_farenheit_to_celsius(32))
 print(degrees_c)  # error грешка - променливата degrees_c е дефинирана във функцията, и тук не съществува
 print(degrees_f)  # error грешка - degrees_f е параметър на функцията, и тук не съществува
+
+
+"""
+
+""" - 12 Exceptions, raising and process 
+
+
+"""
+
+people = [{'name': "Мария", 'gender': "female", 'age': 32}, {'name': "Калоян", 'gender': "male", 'age': 33}, ]
+
+...
+def print_person(person: dict):
+    if 'age' or 'interests' not in person:
+        raise ValueError('Ключът "age/interests" са задължителени в параметъри "person"')
+
+    print("{} ({}) is interested in {}".format(
+        person['name'],
+        person['age'],
+        ', '.join(person['interests'])
+    ))
+
+def print_people(people: list):
+    for person in people:
+        print_person(person)
+
+print_people(people)
