@@ -181,13 +181,22 @@ print_people(people)
 
 """ - 13 Working with text files !!!!!!!
 
+#open
+
 salve_mea_lyrics = open('./takovata.txt')
 for line in salve_mea_lyrics:
     print(line)
 salve_mea_lyrics.close()
 
-"""
+#with open
 
 with open('./takovata.txt') as salve_mea_lyrics:
     for line in salve_mea_lyrics:
         print(line)
+
+"""
+
+with open('./numbers.txt', 'w') as f:   # с 'w' съдържанието на файла ще бъде изтрито, и ще започнем в пишем на празен файл
+    for i in range(20):
+        f.write(str(i))
+        f.write("\n")
