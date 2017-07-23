@@ -77,7 +77,7 @@ send_email(
 
 """ - 6 Functions with number of argumentes *arg 
 def sum_numbers(*args): # the name of the args is optional
-#we can use for examples instead *args -> *options, *args is smth like convetion
+#we can use for examples instead *args -> *options, *args is smth like convention
     total = 0
     for n in args:
         total += n
@@ -162,7 +162,7 @@ people = [{'name': "Мария", 'gender': "female", 'age': 32}, {'name': "Ка�
 ...
 def print_person(person: dict):
     if 'age' or 'interests' not in person:
-        raise ValueError('Ключът "age/interests" са задължителени в параметъри "person"')
+        raise ValueError('Ключът "age/interests" са задължителени в параметъра "person"')
 
     print("{} ({}) is interested in {}".format(
         person['name'],
@@ -194,17 +194,18 @@ with open('./takovata.txt') as salve_mea_lyrics:
     for line in salve_mea_lyrics:
         print(line)
         
-with open('./numbers.txt', 'w') as f:   # с 'w' съдържанието на файла ще бъде изтрито, и ще започнем в пишем на празен файл
+with open('./numbers.txt', 'w') as f:   # с 'w' - write - съдържанието на файла ще бъде изтрито, и ще започнем в пишем на празен файл
+    for i in range(20):
+        f.write(str(i))
+        f.write("\n")
+        
+with open('./numbers.txt', 'a') as f:   # с 'а' - append, съдържанието на файла се запази, и писането в този файл ще допълва в края на файла
     for i in range(20):
         f.write(str(i))
         f.write("\n")
 
+'r' - read
 """
-
-with open('./numbers.txt', 'a') as f:   # с 'а' съдържанието на файла се запази, и писането в този файл ще допълва в края на файла
-    for i in range(20):
-        f.write(str(i))
-        f.write("\n")
 
 """
 Други полезни методи:
@@ -215,3 +216,5 @@ with open('./numbers.txt', 'a') as f:   # с 'а' съдържанието на 
 .read(max_chars) - прочита най-много указания брой символи от файла, и връща str
 
 """
+
+
