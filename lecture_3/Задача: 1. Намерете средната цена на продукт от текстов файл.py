@@ -24,36 +24,40 @@ catalog_full.csv
 
 """
 
-product_catalog_number = 0
-product_name = ''
-product_color = ''
-product_group = ''
-product_activity = ''
-product_price = 0.00
-product_gender_purpose = ''
+def extract_info_in_a_list(path_to_info_as_string): # return list with the info for the products
+    with open(path_to_info_as_string, 'r') as catalog_with_products:
+        catalog_list_with_products = []
 
-def extract_info_in_a_list(path_to_info_as_string): # return list with the info for the product
-    with open(path_to_info_as_string, 'r') as sample_catalog:
-        sample_catalog_list = []
-        for line in sample_catalog:
+        for line in catalog_with_products:
             #https://stackoverflow.com/questions/3849509/how-to-remove-n-from-a-list-element
-            sample_catalog_list.append(line.strip())
-        return sample_catalog_list
+            catalog_list_with_products.append(line.strip())
 
-list_of_products = extract_info_in_a_list('./catalog_sample.csv')
-print(list_of_products)
+        return catalog_list_with_products
 
-products = ['10117,GRAND TOUR II,RUNNINWHT/NEW NAVY,TENNIS,SHOES,Men,691.99', 'GRAND TOUR II W,RUNNINWHT/PINK.PO.,TENNIS,SHOES,Woman,283.99']
+def extract_prices_in_a_list(list_of_products): #return list with prices of the product
+    single_product_info = []
+    list_with_all_prices = []
 
-prices_of_products = [691.99, 283.99]
+    for product in list_of_products:
+        single_product_info.append(product.split(','))
+
+    for product_info in single_product_info:
+            list_with_all_prices.append(float(product_info[6]))
+
+    return list_with_all_prices
 
 def calculate_average_price(prices_of_products): # products is an list of floats
     total_price = 0
     number_of_products = len(prices_of_products)
+
     for price_product in prices_of_products:
         total_price += price_product
     return total_price/number_of_products
 
-ave = calculate_average_price(prices_of_products)
-print(ave)
+list_of_products = extract_info_in_a_list('./catalog_sample.csv')
 
+prices_of_products = extract_prices_in_a_list(list_of_products)
+
+average = calculate_average_price(prices_of_products)
+
+print(average)
