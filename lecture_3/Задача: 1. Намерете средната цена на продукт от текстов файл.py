@@ -54,8 +54,8 @@ def calculate_average_price(prices_of_products): # products is an list of floats
         total_price += price_product
     return total_price/number_of_products
 
-list_of_products = extract_info_in_a_list('./catalog_sample.csv')
-
+list_of_products = extract_info_in_a_list('./catalog_full.csv')
+print(len(list_of_products))
 prices_of_products = extract_prices_in_a_list(list_of_products)
 
 average = calculate_average_price(prices_of_products)

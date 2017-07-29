@@ -218,3 +218,14 @@ with open('./numbers.txt', 'a') as f:   # с 'а' - append, съдържание
 """
 
 
+prices = dict()
+sum_of_prices = 0
+file_dir = "./catalog_sample.csv"
+
+with open(file_dir, 'r', encoding="utf-8") as file:
+    for line in file:
+        line.strip()
+        product_info_list = line.split(',')
+        product_gender_set = set(product_info_list[-2])
+        print(product_gender_set)
+    #print(set_of_genders)
