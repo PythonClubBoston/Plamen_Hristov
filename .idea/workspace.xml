@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4cd4eba3-3263-4e90-b36c-a341118f646c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lecture_1/chess-Table.py" afterPath="$PROJECT_DIR$/lecture_1/chess-Table.py" />
-    </list>
+    <list default="true" id="4cd4eba3-3263-4e90-b36c-a341118f646c" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,8 +45,8 @@
       <file leaf-file-name="chess-Table.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lecture_1/chess-Table.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="25" column="59" lean-forward="false" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="59" />
+            <state relative-caret-position="244">
+              <caret line="61" column="29" lean-forward="true" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -437,8 +435,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lecture_1/chess-Table.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="25" column="59" lean-forward="false" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="59" />
+        <state relative-caret-position="244">
+          <caret line="61" column="29" lean-forward="true" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
           <folding />
         </state>
       </provider>

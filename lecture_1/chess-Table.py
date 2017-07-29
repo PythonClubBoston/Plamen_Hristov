@@ -11,6 +11,15 @@ def draw_filled_rect(color, size):
     turtle.up()    
     turtle.end_fill()
 
+def draw_empty_rect(color, size): #default values 'black' and 40 pixels per rectangular of the chess
+     counter = 0
+     while (counter < 4):
+         turtle.color(color)
+         turtle.forward(size)
+         turtle.left(90)
+         counter += 1
+     turtle.up()
+
 def draw_rows(num_of_rows = 8):
     count_of_cols = 0
     count_of_rows = 0
