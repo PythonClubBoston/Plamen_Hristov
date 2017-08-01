@@ -154,8 +154,7 @@ def convert_farenheit_to_celsius(degrees_f):
     return degrees_c
 
 print(convert_farenheit_to_celsius(32))
-print(degrees_c)  # error грешка - променливата degrees_c е дефинирана във функцията, и тук не съществува
-print(degrees_f)  # error грешка - degrees_f е параметър на функцията, и тук не съществува
+
 
 
 
@@ -225,8 +224,8 @@ with open('./numbers.txt', 'a') as f:   # с 'а' - append, съдържание
 
 prices = dict()
 sum_of_prices = 0
-file_dir = "./catalog_sample.csv"
-
+#file_dir = "./catalog_sample.csv"
+'''
 with open(file_dir, 'r', encoding="utf-8") as file:
     for line in file:
         line.strip()
@@ -234,3 +233,4 @@ with open(file_dir, 'r', encoding="utf-8") as file:
         product_gender_set = set(product_info_list[-2])
         print(product_gender_set)
     #print(set_of_genders)
+'''

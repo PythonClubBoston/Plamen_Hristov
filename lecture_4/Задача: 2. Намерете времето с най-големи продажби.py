@@ -32,4 +32,5 @@ def import_information_to_dict() -> dict:
 
 sales = import_information_to_dict()
 
+print(date.hour)
 

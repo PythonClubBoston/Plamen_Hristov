@@ -21,12 +21,13 @@ http://www.w3resource.com/python/python-tutorial.php - Basic Python Tutorials </
 <h3>Things to research </h3>
 <table>
     <tr>
-        <td>Virtual enviroment - only for the current project</td>
+        <td>1</td><td>Virtual enviroment - only for the current project</td>
+        <td>2</td><td></td>
     </tr>
 </table>
 
 <h3>
-Open Sessami - Trics and Tips Python(Смока)
+Open Sessami - Trics and Tips Python
 </h3>
 <p>
 https://www.youtube.com/watch?v=VBokjWj_cEA

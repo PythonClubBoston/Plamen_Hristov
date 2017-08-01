@@ -13,3 +13,9 @@ https://stackoverflow.com/questions/10095037/why-use-sys-path-appendpath-instead
 
 
 
+
+from lecture_3 import takovata
+
+celsius_july_31_2017_9pm_watertown = takovata.convert_farenheit_to_celsius(73)
+
+print(celsius_july_31_2017_9pm_watertown)

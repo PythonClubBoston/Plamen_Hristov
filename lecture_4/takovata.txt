@@ -1,0 +1,573 @@
+4. Пакети, стандартни формати, os & sys, време
+Модули и пакети
+Модулите и пакетите са механизъм за структуриране на кода на приложенията. В настоящата лекция ще се запознаем само с най-общо с модулите и пакетите в Python, и ще покажем как можем да ги използваме в практиката.
+
+Модули
+Python файл се нарича 'module'. Дефинираните в него функции, класове и променливи можете да използвате с import.
+
+Ако имаме Python module utils_module.pyв същата директория, както и програмата, която стартираме - program.py:
+
+/working_directory
+        utils_module.py
+                def print_with_indent(what: str)
+                    ...
+
+        program.py
+Тогава в основната програма - program.py резултатът от примери е един и същ:
+
+import utils_module
+
+utils_module.print_with_indent("Дефинираните в него функции, класове и променливи можете да използвате с `import`.", indent=8)
+from utils_module import print_with_indent
+
+print_with_indent("Дефинираните в него функции, класове и променливи можете да използвате с `import`.", indent=8)
+from utils_module import print_with_indent as some_fancy_name
+
+some_fancy_name("Дефинираните в него функции, класове и променливи можете да използвате с `import`.", indent=8)
+from utils_module import *    # не е добра практика - не го използвайте
+
+print_with_indent("Дефинираните в него функции, класове и променливи можете да използвате с `import`.", indent=8)
+При import на модул, кодът в него се изпълнява.
+Пакети
+Пакетите в Python са механизъм, с който можете да организирате модули при по-големи проекти.
+
+Пакетите се организират в директории, подобно на други езици (напр. Java). За да бъде дадена директория пакет, в нея трябва да има файл, който се казва __init__.py
+
+Импортирането на пакети става по същия механизъм, както и импортирането на модули.
+
+Пример:
+
+project_directory/
+        utils/
+                __init__.py
+
+                print_utils.py
+                        def print_with_indent(...)
+                        def print_with_colors(...)
+                        ...
+
+                conversions.py
+                        def convert_farenheit_to_celsius(degrees: float)
+                        def convert_celsius_to_farenheit(degrees: float)
+                        def convert_feet_to_meters(feet: float)
+                        def convert_meters_to_feet(meters: float)
+                        ...
+
+        program.py
+                # importing a specific function from a module within a package
+                #      +-----------------  package name
+                #      |
+                #      |       +------------- module name
+                #      |       |
+                #      v       v
+                from utils.print_utils import print_with_indent
+
+                # importing a whole module
+                # functions will be accessible via   `conversions.convert_feet_to_meters(...)`
+                #
+                #
+                from utils import conversions
+
+                ...
+
+                print_with_indent("Program has started", indent=0)
+                print_with_indent("Loading data ...", indent=4)
+
+                ...
+
+                print(conversions.convert_feet_to_meters(34.343))
+Инсталиране на пакети
+Обществото от Python разработчици е изградило централизирано хранилище за публикуване на пакети, които можете да инсталирате и използвате. Адресът му е https://pypi.python.org/pypi . Пакетите са класифицирани по много критерии - предназначение, статус (готов за production, beta, alpha), проблемна област, аудитория (data scientists, developers, system administrators, ...) и много други - можете да разгледате класификаторите от Browse страницата - https://pypi.python.org/pypi?%3Aaction=browse .
+
+За да инсталирате пакет можете да използвате както PyCharm, така и да инсталирате пакета от конзолата.
+
+В примерите ще инсталираме пакетите глобално за интерпретатора. В реални Python проекти това не се прави, тъй като ако работите по повече от един проект е много вероятно да се получи конфликт с версии на пакетите, затова се използва т.нар. "virtual environment". Повече за този похват можете да прочетете на http://docs.python-guide.org/en/latest/dev/virtualenvs/ и https://realpython.com/blog/python/python-virtual-environments-a-primer/
+
+Ако използвате PyCharm
+Ако използвате PyCharm, инсталирането на пакети става много лесно.
+
+Искаме да използваме пакета pytz, който ще ни трябва за следващата тема в лекцията.
+
+PyCharm - installing packages - 1
+
+Позиционирайте курсора върху името на липсващия пакет, и натиснете Alt+Enter, и от показаното меню изберете Install package pytz
+
+PyCharm - installing packages - 2
+
+PyCharm ще инсталира автоматично пакета от централното хранилище на пакети за Python, и ще Ви уведоми, когато всичко е готово:
+
+PyCharm - installing packages - 3
+
+Вече можем да използваме пакета pytz
+
+PyCharm - installing packages - 4
+
+Инсталиране на пакети от конзолата
+Ако не използвате IDE като PyCharm, можете да инсталирате пакета и от конзолата (command line):
+
+Ако използвате Linux или MacOS
+
+pip3 install pytz
+При грешка, че няма команда "pip3" трябва да инсталирате pip с помощта на sudo apt-get install python3-pip
+
+Ако използвате Windows, командата е:
+
+pip install pytz
+Примери на живо
+Примерите на живо са писани по време на лекцията, така че доста често са разхвърляни, и в тях са показани много неща. Използвайте ги, за да си припомните обясненията по време на лекцията.
+
+from utils import convert_fahrenheit_to_celsius
+from utils import TEMP_WATER_FREEZING_F
+
+print("Program")
+
+deg_c = convert_fahrenheit_to_celsius(32)
+print("C: ", deg_c)
+print("Water freezes at {} deg F".format(TEMP_WATER_FREEZING_F))
+
+# =======================================
+
+import utils
+
+deg_c = utils.convert_fahrenheit_to_celsius(32)
+print("C: ", deg_c)
+print("Water freezes at {} deg F".format(utils.TEMP_WATER_FREEZING_F))
+
+# --------------------------
+
+# # DO NOT USE THIS  -  from xxx import *  !!!!!!!!!!!!!!!!!!!!!
+# from utils import *
+#
+# deg_c = convert_fahrenheit_to_celsius(32)
+# print("C: ", deg_c)
+# print("Water freezes at {} deg F".format(TEMP_WATER_FREEZING_F))
+Стандартни пакети os & sys
+os
+Пакетът os съдържа множество полезни функции, които са свързани с работата на програмата с операционната система - информация за файлове, директории, както и за взаимодействие с операционната система на по-ниско ниво.
+
+import os
+if os.access('/etc/passwd', os.W_OK):
+    print("Не би трябвало да можете да пишете в този файл")
+elif os.access('/etc/passwd', os.R_OK):
+    print("Можете да прочетете списъка с потребителите.")
+Полезни функции за курса:
+
+os.walk() - позволява обхождане на съдържанието на директория и поддиректории;
+os.access() - проверява дали имате достъп до файл или директория;
+Пример за обхождане на директория:
+
+import os
+for dirpath, dirnames, filenames in os.walk('./'):
+    print("Директория '{}' съдържа:".format(dirpath))
+    print("Под-директории: \n\t{}".format("\n\t".join(dirnames)))
+    print("Файлове: \n\t{}".format("\n\t".join(filenames)))
+    print("\n-------------\n\n")
+os.path
+os.path предоставя функции за лесна работа с файлови пътища и имена.
+
+import os
+
+print(os.path.join("C:\Users", "Guest", "Documents", "document.docx"))
+"C:\Users\Guest\Documents\document.docx"
+Полезни функции в os.path:
+
+os.path.join - слепя няколко стринг-а така, че да се получи валиден път до файл;
+os.path.exists - проверява дали подаденото име съществува - независимо дали е файл или директория;
+os.path.basename - връща името на файла (с разширението) по подаден пълен път до файл;
+os.path.dirname - връща името на директорията по подаден пълен път до файл;
+os.path.getsize - връща размера на файл в байтове по подадено име;
+os.path.isfile - проверява дали подаденият параметър е име на съществуващ файл;
+os.path.isdir - проверява дали подаденият параметър е име на съществуваща директория;
+os.path.splitext - връща tuple с 2 елемента - (име на файла, разширение на името на файла);
+Параметри от командния ред, и sys
+Стандартният пакет sys съдържа редица системни функции и информация, като пълно описание можете да намерите в документацията.
+
+За целите на курса ще разгледаме само приемането на параметри на програмата от командния ред. В специалната променлива sys.argv Python ще попълни параметрите, които са подадени от командния ред.
+
+arguments.py:
+
+import sys
+print("Параметри на програмата:")
+print(sys.argv)
+for idx, a in enumerate(sys.argv):
+    print("Argument #{} - '{}'".format(idx, a))
+При извикване ще получите:
+
+python3 arguments.py
+Параметри на програмата:
+['arguments.py']
+Argument #0 - 'arguments.py'
+
+python3 arguments.py filename.txt
+Параметри на програмата:
+['arguments.py', 'filename.txt']
+Argument #0 - 'arguments.py'
+Argument #1 - 'filename.txt'
+
+python3 arguments.py filename.txt 46
+Параметри на програмата:
+['arguments.py', 'filename.txt', '46']
+Argument #0 - 'arguments.py'
+Argument #1 - 'filename.txt'
+Argument #2 - '46'
+На индекс 0 в sys.argv винаги е попълнено името на програмата, която е стартирана - в примерите по-горе - "arguments.py".
+
+Задача: 1. Търсене във файловата система
+Примери на живо
+Примерите на живо са писани по време на лекцията, така че доста често са разхвърляни, и в тях са показани много неща. Използвайте ги, за да си припомните обясненията по време на лекцията.
+
+import os
+
+# --------------------------------------
+
+for dirpath, dirnames, filenames in os.walk('./'):
+    print("Current directory: ", dirpath)
+    print("Directories: ", dirnames)
+    print("Files: ", filenames)
+    print("-" * 100)
+
+# --------------------------------------
+
+def get_all_abs_filenames_recursive(start_directory: str) -> list:
+    result = []
+    start_directory = os.path.abspath(start_directory)
+    for dirpath, _, filenames in os.walk(start_directory):
+        for fn in filenames:
+            abs_filename = os.path.join(dirpath, fn)  # DO NOT DO THIS! : result.append(dirpath + fn)
+            result.append(abs_filename)
+    return result
+
+fn = input('enter filename to search for: ')
+
+all_abs_filenames = get_all_abs_filenames_recursive('./')
+
+print("All files:")
+for fn in all_abs_filenames:
+    print(' - ', fn)
+import sys
+import os
+
+def find_file(start_directory: str, filename_to_search_for: str) -> str:
+    result = []
+    for dirpath, _, filenames in os.walk(start_directory):
+        if filename_to_search_for in filenames:
+            result.append(os.path.join(dirpath, filename_to_search_for))
+
+    return result
+
+    # return result or None
+    #
+    # if result:
+    #     return result
+    # else:
+    #     return None
+
+##  sys.argv ALWAYS CONTAINS AT LEAST ONE ELEMENT
+#  sys.argv[0] - ALWAYS the name of the python script that was started
+#  sys.argv[1] - the first parameter, if provided
+#  sys.argv[2] - the second parameter, if provided
+#  sys.argv[3] - ...
+
+# Linux & MacOS
+#
+#    python3 find.py name-to-search-for.txt
+#
+#
+#  Windows:
+#
+#    python find.py name-to-search-for.txt
+
+if len(sys.argv) >= 2:
+    filename_to_search_for = sys.argv[1]
+    found_filenames = find_file('./', filename_to_search_for)
+    if found_filenames:
+        print("Found files:")
+        for fn in found_filenames:
+            print(fn)
+    else:
+        print("File not found")
+else:
+    print("Please provide a filename as a first parameter")
+Време и дати
+На пръв поглед времето е сравнително проста концепция - движи се в само в една посока, при това равномерно - секунда след секунда.
+
+import time
+print(time.time())
+Най-често използваният метод за отчитане на времето в POSIX операционните системи е т.нар. UNIX timestamp - число, указващо брой секунди от 01.01.1970 до момента.
+
+Подреждането на времето в часове, дни, месеци и години, от друга страна, е не е проста работа - в природата рядко нещата се подреждат удобно, а и тази дейност зависи и от силните на деня :о)
+
+Когато е необходимо да се работи с дати, време и календар, е задължително да се използват специализираните средства на платформата, вместо да се работи директно с timestamp.
+
+В Python инструментите за работа с дати и часове се намират в пакета datetime
+
+Обектът datetime от пакета datetime работи с информация за час и дата, с включено управление и на часови зони.
+
+from datetime import datetime
+
+print(datetime.now())
+
+print(datetime(2016, 1, 19))
+
+print(datetime(2016, 1, 19, 20, 21, 22, 222425))
+
+print(datetime(year=2016, month=1, day=19, hour=20, minute=21, second=22, microsecond=222425))
+Ако Ви е необходима работа само с дати (без час), можете да използвате datetime.date.
+
+from datetime import date
+
+print(date(2016, 1, 19))
+
+d = date.today()
+print(d)
+
+from datetime import datetime
+
+dt  = datetime.now()
+
+d = dt.date()  # създава нов обект date,  съдържащ само информацията за дата от обект datetime
+print(d)
+Форматиране на date & datetime стойности
+За разпечатване/форматиране на datetime стойности можете да използвате няколко метода:
+
+d  = datetime(2016, 1, 19, 20, 21, 22, 222425)
+
+print(str(d))
+2016-01-19 20:21:22.222425
+
+print(d.strftime('година: %Y, месец: %m, ден: %d, час: %H минута: %M  секунда: %S'))
+година: 2016, месец: 01, ден: 19, час: 20 минута: 21  секунда: 22
+
+print(d.isoformat())
+2016-01-19T20:21:22.222425
+Пълно описание на форматиращите команди за .strftime() можете да намерите в документацията на Python3 или на този адрес http://strftime.org/
+
+Важно е да се знае, че много от форматиращите команди зависят от locale (текущите регионални настройки).
+
+Parse на str към date / datetime обекти
+Конвертирането на стойност от str към datetime обект може да стане с помощта на метода strptime().
+
+string_value = '2016-01-19T20:21:22.222425'
+datetime_value = datetime.strptime(string_value, '%Y-%m-%dT%H:%M:%S.%f')
+strptime() използва същите командни символи, както и strftime().
+
+Форматът ISO-8601
+ISO8601 е международен стандарт за запис на дата/час в символен низ str.
+
+Примери:
+
+2016-07-26 - само дата
+2016-07-26 19:32:43 - дата и час, в локално време
+2016-07-26Т19:32:43 - дата и час, в локално време; разделителят между дата и час може да бъде и главно латинско T
+2016-07-26Т19:32:43.325 - дата и час в локално време, с информация за милисекунди
+2016-07-26Т19:32:43.325521 - дата и час в локално време, с информация за микросекунди
+2016-07-26T19:32:43Z - дата и час в часова зона UTC
+2016-07-26T19:32:43+00:00 - дата и час в часова зона без отместване от UTC
+2016-07-26T19:32:43+02:00 - дата и час в часова зона с отместване от UTC 2 часа напред (България, стандартно време - без DST)
+2016-07-26T19:32:43+03:00 - дата и час в часова зона с отместване от UTC 3 часа напред (България, лятно време - с DST)
+2016-07-26T19:32:43-07:00 - дата и час в часова зона с отместване от UTC 7 часа назад
+За да превърнем datetime стойност в str във формат ISO 8601, можем да използваме метода isoformat():
+
+from datetime import datetime
+
+d = datetime.now()
+print(d.isoformat())
+2016-07-26T19:32:43.566718
+За съжаление, в Python няма вграден удобен механизъм за parse на ISO 8601 форматиран стринг към date/datetime/timedelta обекти - имайте предвид, че ISO8601 специфицира голям набор от възможности.
+
+Ще използваме външния пакет iso8601, за да направим конвертирането (parse) от ISO-8601 стринг към datetime обект. Преди да можете да го използвате пакета, трябва да го инсталирате, както е показано по-горе в настоящата лекция:
+
+import iso8601
+
+dt_str = '2016-07-23T12:53:06.526240+03:00'
+d = iso8601.parse_date(dt_str)
+
+print(d)
+Пакетът поддържа и информация за часови зони.
+
+Аритметика с време
+!!!! Предупреждение Никога не смятайте на ръка стойности с дати и часове - винаги използвайте специализираните механизми за това
+from datetime import datetime , timedelta
+
+d = datetime.now()
+t  = timedelta(hours=2)
+
+print(d + t)
+
+print(d - t)
+
+print(t)
+from datetime import datetime , timedelta
+
+d = datetime.now()
+d_earlier = datetime(2016, 7, 26, 18, 00)
+td =  d - d_earlier
+
+print(td)
+print(td.days)
+print(td.seconds)
+print(td.microseconds)
+print(td.total_seconds())
+date и datetime като ключове в dict
+Обектите date и datetime са immutable – също както string & tuple - веднъж създадени, "промяната" им създава нов обект.
+
+Можете да използвате date и datetimeкато ключове в dict. Когато решите да използвате datetime за ключ, обаче, е добре да "отрежете" до точност, която Ви е необходима - например до минута, час или дата.
+
+from datetime import datetime
+
+sales_count_by_hour = {}
+
+...
+
+dt = datetime.now()
+
+# "отрязваме" с ненужната информация за минути, секунди и микросекунди
+dt = dt.replace(minute=0, second=0, microsecond=0)   # с точност до час
+
+...
+
+if dt not in sales_by_hour:
+    sales_count_by_hour[dt] = 1
+else:
+    sales_count_by_hour[dt] += 1
+Задача: 2. Намерете времето с най-големи продажби
+Часови зони, DST и други особености
+Часови зони
+Първоначално времето се е отчитало спрямо зенита на Слънцето за съответното място (най-високата точка на Слънцето в продължение на деня). Поради (почти) сферичната форма на Земята на различните места зенитът се случва по различно време. За да се стандартизира отчитането на времето се въвеждат часовите зони.
+
+Wikipedia - Time zone
+
+World timezones
+
+Часови зони (пълен размер) - от Wikipedia
+
+Часовите зони зависят както от локацията на мястото, така и от решения на всяка държава спрямо кои часови зони ще отчита времето си. Както се вижда на картата по-горе, часовите зони въобще не отговарят на меридианите.
+
+Във видеоклиповете ще намерите подробни и интересни обяснения за часовите зони:
+
+The Problem with Time & Timezones - Computerphile
+
+Strangest Time Zones of the World
+
+Daylight saving time
+Daylight Saving Time Explained
+
+Високосни неща
+Високосните години се добавят, за да компенсират факта, че Земята се завърта около Слънцето за малко повече от 365 дни.
+
+What is a Leap Year?
+
+По същата причина към времето се добавят и високосни секунди. За разлика от високосните години, които следват предварително установен график, високосните секунди се добавят на база много по-точни измервания, и не са фиксирани.
+
+Wikipedia - Leap year
+
+Wikipedia - Leap second
+
+SciShow - A Brief History of Timekeeping (с обяснение защо е необходима високосна секунда)
+
+От гледна точка на програмиста
+Винаги, когато имате възможност, използвайте стандартното форматиране на дати и часове - ISO8601.
+
+from datetime import datetime
+import pytz
+
+z = pytz.timezone('Europe/Sofia')
+d = datetime.now(tz=z)
+
+print(d.isoformat())
+
+# 2016-01-19T20:23:14.608574+02:00
+import iso8601
+d = iso8601.parse_date('2016-01-19T20:23:14.608574+02:00')
+print(d)
+print(d.isoformat())
+Конвертиране между timezones:
+
+from datetime import datetime
+import pytz
+
+z = pytz.timezone('Europe/Sofia')
+d = datetime.now(tz=z)
+
+print(d.astimezone(pytz.timezone('Asia/Tokyo'))
+
+print(d.astimezone(pytz.timezone('UTC')))
+
+# or using the definition of UTC timezone from the standard Python library
+
+from datetime import timezone
+
+print(d.astimezone(timezone.utc))
+Примери на живо
+Примерите на живо са писани по време на лекцията, така че доста често са разхвърляни, и в тях са показани много неща. Използвайте ги, за да си припомните обясненията по време на лекцията.
+
+from datetime import datetime, date, timedelta
+
+d = date.today()
+print(d)
+
+dt = datetime.now()
+print(dt)
+
+dt = dt + timedelta(days=30)
+print(dt)
+
+
+d1 = date(2016, 8, 17)
+dt1 = datetime(year=2016, month=8, day=17, hour=17, minute=56, second=8)
+
+dt2 = datetime(year=2016, month=8, day=20, hour=7, minute=8, second=9, microsecond=34756)
+
+print(dt1)
+print(dt2)
+
+tdelta = dt2 - dt1
+print(tdelta)
+print(dt.strftime('%H neshto %Y ))) %m '))
+
+dt = datetime.now()
+
+print(str(dt))
+date_str_iso = dt.isoformat()
+
+import iso8601
+d_object = iso8601.parse_date(date_str_iso)
+print(d_object)
+
+date_string = '2016-07-26 21:22:23.770340'
+date_string = '2016-07-26 21:38:23.770340'
+
+date_string = '2016-07-26 21:58:23.770340'
+datetime_object = iso8601.parse_date(date_string)
+dt_group_by = datetime_object.replace(minute=0, second=0, microsecond=0)
+print(dt_group_by)
+
+date_string2 = '2016-07-26 21:38:23.770340'
+datetime_object2 = iso8601.parse_date(date_string2)
+dt_group_by2 = datetime_object2.replace(minute=0, second=0, microsecond=0)
+print(dt_group_by2)
+
+print(dt_group_by == dt_group_by2)
+
+sales_count_by_hour = { }  # key: datetime, hour resolution
+                           # value: sales count
+
+category1 = 'men'
+category2 = 'men'
+sales_count_by_hour[dt_group_by] = 1
+print(sales_count_by_hour)
+sales_count_by_hour[dt_group_by] += 1
+print(sales_count_by_hour)
+
+# the above works exactly the same as:
+
+category1 = 'men'
+category2 = 'men'
+sales_count_by_category[category1] = 1
+print(sales_count_by_category)
+sales_count_by_category[category2] += 1
+print(sales_count_by_category)
+
+# we're using datetime objects as keys in the dictionary instead of strings
+Задачи
+ 	№	Име на задачата
