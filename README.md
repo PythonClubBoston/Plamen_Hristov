@@ -22,7 +22,9 @@ http://www.w3resource.com/python/python-tutorial.php - Basic Python Tutorials </
 <table>
     <tr>
         <td>1</td><td>Virtual enviroment - only for the current project</td>
-        <td>2</td><td></td>
+    </tr>
+    <tr>
+        <td>2</td>...<td></td>
     </tr>
 </table>
 
