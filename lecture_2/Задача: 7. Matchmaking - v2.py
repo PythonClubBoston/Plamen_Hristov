@@ -1,24 +1,3 @@
-"""
-
-Да разширим предходната задача.
-
-Вече имаме малко повече информация за хората, и искаме да прибавим допълнителни условия към matchmaking-a.
-
-Освен условията досега:
-
-момиченце с момченце; ако сте по-свободомислещи, можете да комбинирате и момченце с момченце, но все пак да
-има някакво правило :о);
-трябва да имат поне един общ интерес;
-ще имаме и допълнителни условия:
-
-разликата в годините не трябва да бъде по-голяма от 6;
-не бива да комбинирате хора с бившите им партньори - някакси ще се получи неловко :о)
-Резултатът от програмата също ще трябва да заизглежда малко по-добре:
-
-Мария (24) и Калоян (29) ; общи интереси: пътуване, кино
-. . .
-
-"""
 
 people = [
     {
@@ -121,24 +100,60 @@ people = [
     },
 ]
 
-
 for person_index, person_A in enumerate(people):
-    for person_B in people[person_index + 1:]:
-        if(person_A['gender'] == person_B['gender']):
-            continue
-        common_interest = []
-        set_person_interests_A = set(person_A['interests']) #cast person_A interests to set
-        set_person_interests_B = set(person_B['interests']) #cast person_B interests to set
-        set_person_ex_A = set(person_A['ex']) #cast person_A ex relashionships to set
-        set_person_ex_B = set(person_B['ex']) #cast person_B relashionshipsto set
+
+    for person_B in people[person_index:]:
+
+
+        """
+
+        set_person_interests_A = set(person_A['interests'])
+        set_person_interests_B = set(person_B['interests'])
 
         common_interest = set_person_interests_A.intersection(set_person_interests_B)
-        if len(common_interest) > 0:  # if they have mutual interests
+
+        number_of_common_interest = len(common_interest)
+
+        if(number_of_common_interest == 0):
+            continue
+        set_person_ex_A = set(person_A['ex'])
+        set_person_ex_B = set(person_B['ex'])
+
+        if(len(set_person_ex_A) == 0 or len(set_person_ex_B) == 0):
+
             the_diff_in_years = abs(int(person_A['age']) - int(person_B['age']))
-            ex_relashionships = set_person_ex_A.difference(set_person_ex_B)
-            print(ex_relashionships)
-            if(the_diff_in_years >= 6): # if the difference between years is more than 6
+            if (the_diff_in_years >= 6):
                 continue
-            elif(len(ex_relashionships) > 0):
-                print('{} и {} имат общ интерес и той/те са - {} and years difference between them is: {}'.format(person_A['name'], person_B['name'], common_interest, the_diff_in_years))
-                print('Their ex are: {} '.format(ex_relashionships))
+            else:
+                print('{} и {} имат общ интерес и той/те са - {} '.format(person_A['name'], person_B['name'], common_interest))
+
+        number_of_common_ex = len(set_person_ex_B.intersection(person_A['name']))
+
+        if(number_of_common_ex > 0):
+            continue
+        else:
+
+            the_diff_in_years = abs(int(person_A['age']) - int(person_B['age']))
+
+            if(the_diff_in_years >= 6):
+                continue
+
+            else:
+                print('{} и {} имат общ интерес и той/те са - {} '.format(person_A['name'], person_B['name'], common_interest))
+
+"""
+"""
+
+Да разширим предходната задача.
+Вече имаме малко повече информация за хората, и искаме да прибавим допълнителни условия към matchmaking-a.
+Освен условията досега:
+момиченце с момченце; ако сте по-свободомислещи, можете да комбинирате и момченце с момченце, и момиче с момиче
+но все пак да има някакво правило :о); трябва да имат поне един общ интерес;
+ще имаме и допълнителни условия:
+ - разликата в годините не трябва да бъде по-голяма от 6;
+ - не бива да комбинирате хора с бившите им партньори - някакси ще се получи неловко :о)
+ -Резултатът от програмата също ще трябва да заизглежда малко по-добре:
+  Примерен изход: Мария (24) и Калоян (29) ; общи интереси: пътуване, кино
+. . .
+
+"""

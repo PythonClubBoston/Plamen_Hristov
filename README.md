@@ -1,8 +1,3 @@
-# PlamensPython
-<h3>Get into a shape with Softuni judge system</h3>
-<p>https://judge.softuni.bg/</p>
-
-
 <h3>Links for the course, january and july 2016:</h3>
 <p>https://softuni.bg/trainings/1281/python-programming-january-2016</p>
 <p>https://softuni.bg/trainings/1402/python-programming-july-2016</p> 
@@ -11,12 +6,33 @@
 <p>http://python3.softuni.bg/student/lecture/567ffa1c131b1642faa73795/#toc-5</p> 
 <p>http://python3.softuni.bg/student/course/</p>
 
+<h3> Python packages </h3>
+<a href = "https://pypi.python.org/pypi"> https://pypi.python.org/pypi </a>
+<p> pip install pytz - install packages from the console, try first version of the python with pip --version</p>
+<p> and if the version is 2.7 not 3, try pip3 </p>
+<p>sudo apt-get python3 install - if doesn't excist with linux</p>
+
+<a href="http://www.w3resource.com/python/python-tutorial.php">
+http://www.w3resource.com/python/python-tutorial.php - Basic Python Tutorials </a>
+
+<h3>Get into a shape with Softuni judge system</h3>
+<p>https://judge.softuni.bg/</p>
+
+<h3>Things to research </h3>
+<table>
+    <tr>
+        <td>Virtual enviroment - only for the current project</td>
+    </tr>
+</table>
+
 <h3>
 Open Sessami - Trics and Tips Python(Смока)
 </h3>
 <p>
 https://www.youtube.com/watch?v=VBokjWj_cEA
 </p>
+
+<a href="http://strftime.org/"> http://strftime.org/ </a>
 
 <h3>
 Open Sessami - Tutorials in youtube and officials web site
