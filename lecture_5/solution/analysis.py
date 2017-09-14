@@ -113,114 +113,30 @@
 """
 TASK
 1. Load catalog file
-2. Loadd the sales file
+2. Load the sales file
 """
 
 
 
 
-
-"""
-
-catalog.csv data Expected columns in catalog file:
-
-0. Иентификационен номер на артикула;
-1. Наименование на артикула;
-2. Цветове, в които артикулът е наличен;
-3. Група на артикула;
-4. Спорт, за който е предназначен артикулът;
-5. Категория
-6. Подкатегория
-7. Пол, за който е предназначен артикула - мъже, жени, unisex, деца, бебета
-
-Result: 
-    {
-        item_id : category_name
-        "J05705": "SHOES"
-        ...
-    
-    }
-
-"""
-import csv
 from pprint import pprint
-import iso8601
 
-CATALOG_FILE_PATH = '/home/plamen/PycharmProjects/lecture_5/sales-analysis-assignment-all/catalog.csv'
-SALES_FILE_PATH = '/home/plamen/PycharmProjects/lecture_5/sales-analysis-assignment-all/sales-10K.csv'
+from lecture_5.solution.catalog import load_catalog
+from lecture_5.solution.sales import load_sales
 
-def load_catalog(file_Path: str) ->  dict:
-
-
-    COLUMN_ITEM_ID = 0
-    COLUMN_CATEGORY = 5
-    result = {}
-
-    with open(file_Path, 'r', encoding='utf-8') as csvfile:
-        reader = csv.reader(csvfile)
-        for row in reader:
-            item_id = row[COLUMN_ITEM_ID]
-            category = row[COLUMN_CATEGORY]
-            result[item_id] = category
-        return result
-
-"""
-Data for sales in files 'sales-*.csv'
-Dанни за продажби - файлове 'sales-*.csv'
-Файловете с продажби са във формат CSV (UTF-8), и съдържат следните колони:
-Columns 
- 0. Идентификационен номер на артикула;
- 1. Държава, в която е била извършена продажбата (ISO code)
- 2. Име на град, в която е била извършена продажбата;
- 3. Дата/час на продажбата с timezone, във формат ISO8601;
- 4. Цена на продажбата (цените на един и същ артикул в различните държави са различни)
-
- Result: list of dictionaries
-     [
-        {
-            "item_id": "561712",
-            "country": "ES",
-            "city": "Murcia",
-            "timestamp": datetime("2015, 12, 11, 17, 14, 05, tz=+01:00"),
-            "price": 43.21
-        },
-
-        {
-            ...
-        }
-     ]
-"""
-
-def load_sales(file_Path: str) -> list:
-
-
-    COLUMN_ITEM_ID = 0
-    COLUMN_COUNTRY = 1
-    COLUMN_CITY = 2
-    COLUMN_TIMESTAMP = 3
-    COLUMN_PRICE = 4
-
-    result = []
+CATALOG_FILE_PATH = '/home/plamen/PycharmProjects/lecture_5/solution/catalog.csv'
+SALES_FILE_PATH = '/home/plamen/PycharmProjects/lecture_5/solution/sales-10K.csv'
 
 
 
-    with open(file_Path, 'r', encoding='utf-8') as csvfile:
-        reader = csv.reader(csvfile)
-        for row in reader:
-            sale = {}
-            sale['item_id'] = row[COLUMN_ITEM_ID]
-            sale['country'] = row[COLUMN_COUNTRY]
-            sale['city'] = row[COLUMN_CITY]
-            sale['timestamp'] = iso8601.parse_date(row[COLUMN_TIMESTAMP])
-            sale['price'] = float(row[COLUMN_PRICE])
-            result.append(sale)
-    return result
+def main():
 
+    catalog = load_catalog(CATALOG_FILE_PATH)
+    #pprint(catalog)
+    sales = load_sales(SALES_FILE_PATH)
+    pprint(sales[:10])
 
-#catalog = load_catalog(CATALOG_FILE_PATH)
-#pprint(catalog)
-sales = load_sales(SALES_FILE_PATH)
-pprint(sales[:10])
+main()
 
 """
     print('Обобщение ')
