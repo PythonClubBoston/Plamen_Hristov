@@ -127,6 +127,49 @@ from lecture_5.solution.sales import load_sales
 CATALOG_FILE_PATH = '/home/plamen/PycharmProjects/lecture_5/solution/catalog.csv'
 SALES_FILE_PATH = '/home/plamen/PycharmProjects/lecture_5/solution/sales-10K.csv'
 
+def print_total_stats(sales):
+
+        total_amount = 0
+        total_count = len(sales)
+
+        min_timestamp = None
+        max_timestamp = None
+
+
+        for sale in sales:  #see sales.load_sales() for details
+            total_amount += sale['price']
+            ts = sale['ts']
+
+            if min_timestamp is None or ts < min_timestamp:
+                min_timestamp = ts
+
+            if max_timestamp is None or ts > max_timestamp:
+                 max_timestamp = ts
+
+        print("""
+      Обобщение                                                 
+      ---------                                                 
+          Общ брой продажби: {total_count}                              
+          Общо сума продажби: {total_amount: .2f}                     
+          Средна цена на продажба: {average_price: .2f} €                     
+          Начало на период на данните: {min_ts}
+          Край на период на данните: {max_ts} 
+             """.format(
+        total_count = total_count,
+        total_amount = total_amount,
+        average_price = total_amount / total_count if total_count else None,
+        min_ts = min_timestamp,
+        max_ts = max_timestamp
+    )
+          )
+def print_top_by_category(sales):
+    pass
+
+def print_top_by_city(sales):
+    pass
+
+def print_top_by_hour(sales):
+    pass
 
 
 def main():
@@ -134,18 +177,11 @@ def main():
     catalog = load_catalog(CATALOG_FILE_PATH)
     #pprint(catalog)
     sales = load_sales(SALES_FILE_PATH)
-    pprint(sales[:10])
+
+
+    print_total_stats(sales)
+    print_top_by_category(sales)
+    print_top_by_city(sales)
+    print_top_by_hour(sales)
 
 main()
-
-"""
-    print('Обобщение ')
-    print('– – – – – – ')
-
-    print('Общ брой продажби: ', countNumberOfSells())
-    print('Общо сума продажби: ', totalMoneyFromSells())
-    print('Средна цена на продажбата: ', averagePriceForItem())
-    print('Начало на период на данните: ', startPeriodOfData())
-    print('Край на период на данните: ', endPeriodOfData())
-
-"""

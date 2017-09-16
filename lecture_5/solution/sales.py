@@ -24,7 +24,7 @@ Columns
             "item_id": "561712",
             "country": "ES",
             "city": "Murcia",
-            "timestamp": datetime("2015, 12, 11, 17, 14, 05, tz=+01:00"),
+            "ts": datetime("2015, 12, 11, 17, 14, 05, tz=+01:00"),
             "price": 43.21
         },
 
@@ -45,7 +45,7 @@ def load_sales(file_Path: str) -> list:
             sale['item_id'] = row[COLUMN_ITEM_ID]
             sale['country'] = row[COLUMN_COUNTRY]
             sale['city'] = row[COLUMN_CITY]
-            sale['timestamp'] = iso8601.parse_date(row[COLUMN_TIMESTAMP])
+            sale['ts'] = iso8601.parse_date(row[COLUMN_TIMESTAMP])
             sale['price'] = float(row[COLUMN_PRICE])
             result.append(sale)
     return result
