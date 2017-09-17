@@ -105,10 +105,7 @@
         print(d_in_utc)
         '2015-12-18 19:50:21+00:00'
 """
-
-
-
-
+import iso8601
 
 """
 TASK
@@ -120,9 +117,10 @@ TASK
 
 
 from pprint import pprint
+from datetime import datetime
 
 from lecture_5.solution.catalog import load_catalog
-from lecture_5.solution.sales import load_sales, KEY_TS, KEY_PRICE, KEY_ITEM_ID
+from lecture_5.solution.sales import load_sales, KEY_TS, KEY_PRICE, KEY_ITEM_ID, KEY_CITY
 
 CATALOG_FILE_PATH = '/home/plamen/PycharmProjects/lecture_5/solution/catalog.csv'
 SALES_FILE_PATH = '/home/plamen/PycharmProjects/lecture_5/solution/sales-10K.csv'
@@ -207,8 +205,8 @@ def print_top_by_city(sales):
     sales_by_city = {}
 
     for sale in sales:
-        city = sale['city']       #in constant
-        price = sale['price']
+        city = sale[KEY_CITY]
+        price = sale[KEY_PRICE]
 
         if city not in sales_by_city:
             sales_by_city[city] = 0
@@ -226,16 +224,40 @@ def print_top_by_city(sales):
         print(' {}: {:.2f} €'.format(top_city, top_sales))
 
 def print_top_by_hour(sales):
-    pass
-"""
-    Сума на продажби по час (top 5)
-    -----------------------------
-        2015-12-01 12:00:00+01:00: 9209.70 €
-        2016-01-17 10:00:00+02:00: 8811.59 €
-        2016-01-05 20:00:00+01:00: 8590.52 €
-        2015-12-29 20:00:00+02:00: 8270.59 €
-        2016-01-05 10:00:00+01:00: 8028.91 €
-"""
+
+    """
+        Сума на продажби по час (top 5)
+        -----------------------------
+            2015-12-01 12:00:00+01:00: 9209.70 €
+            2016-01-17 10:00:00+02:00: 8811.59 €
+            2016-01-05 20:00:00+01:00: 8590.52 €
+            2015-12-29 20:00:00+02:00: 8270.59 €
+            2016-01-05 10:00:00+01:00: 8028.91 €
+    """
+    best_sales_by_hour = {}
+
+    for sale in sales:
+        ts = sale[KEY_TS].replace(minute=0, second=0, microsecond=0)
+        price = sale[KEY_PRICE]
+
+        if ts not in best_sales_by_hour:
+            best_sales_by_hour[ts] = 0
+
+        best_sales_by_hour[ts] += price
+
+
+    best_sales_by_hour_sorted = []
+
+    for ts, price in best_sales_by_hour.items():
+        best_sales_by_hour_sorted.append((price, ts))
+
+    best_sales_by_hour_sorted.sort(reverse=True)
+
+    for price, hour in best_sales_by_hour_sorted[:5]:
+        print('{}: {: .2f}  €'.format(hour, price))
+
+
+
 
 def main():
 
@@ -245,7 +267,7 @@ def main():
 
     #print_total_stats(sales)
     #print_top_by_category(sales, catalog)
-    print_top_by_city(sales)
+    #print_top_by_city(sales)
     print_top_by_hour(sales)
 
 main()
