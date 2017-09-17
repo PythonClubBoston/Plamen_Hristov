@@ -178,7 +178,7 @@ def print_top_by_category(sales, catalog):
 
         amounts_by_category[category_name] += price
 
-        amounts_by_category_sorted = []
+    amounts_by_category_sorted = []
 
 
     for category_name, total_amount in amounts_by_category.items():
@@ -193,11 +193,49 @@ def print_top_by_category(sales, catalog):
         print("     {}: {: .2f} €".format(category_name, total_amount))
 
 def print_top_by_city(sales):
-    pass
+
+    """
+        Сума на продажби по градове (top 5)
+        -----------------------------
+            Manchester: 100620.74 €
+            Liverpool: 96607.68 €
+            London: 92239.71 €
+            Nottingham: 90084.01 €
+            Glasgow: 87052.21 €
+    """
+
+    sales_by_city = {}
+
+    for sale in sales:
+        city = sale['city']       #in constant
+        price = sale['price']
+
+        if city not in sales_by_city:
+            sales_by_city[city] = 0
+
+        sales_by_city[city] += price
+
+    sales_by_city_sorted = []
+
+    for top_city, top_sales in sales_by_city.items():
+        sales_by_city_sorted.append((top_sales, top_city))
+
+    sales_by_city_sorted.sort(reverse=True)
+
+    for top_sales, top_city in sales_by_city_sorted[:5]:
+        print(' {}: {:.2f} €'.format(top_city, top_sales))
 
 def print_top_by_hour(sales):
     pass
-
+"""
+    Сума на продажби по час (top 5)
+    -----------------------------
+        2015-12-01 12:00:00+01:00: 9209.70 €
+        2016-01-17 10:00:00+02:00: 8811.59 €
+        2016-01-05 20:00:00+01:00: 8590.52 €
+        2015-12-29 20:00:00+02:00: 8270.59 €
+        2016-01-05 10:00:00+01:00: 8028.91 €
+"""
 
 def main():
 
@@ -205,9 +243,8 @@ def main():
     #pprint(catalog)
     sales = load_sales(SALES_FILE_PATH)
 
-
-    print_total_stats(sales)
-    print_top_by_category(sales, catalog)
+    #print_total_stats(sales)
+    #print_top_by_category(sales, catalog)
     print_top_by_city(sales)
     print_top_by_hour(sales)
 
