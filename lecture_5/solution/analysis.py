@@ -211,6 +211,7 @@ def print_top_by_hour(sales):
         ts = sale[KEY_TS].replace(minute=0, second=0, microsecond=0)
         price = sale[KEY_PRICE]
 
+
         if ts not in best_sales_by_hour:
             best_sales_by_hour[ts] = 0
 
@@ -240,8 +241,8 @@ def main():
     print('-'*25)
     print_top_by_hour(sales)
 
-before = datetime.now()
+start = datetime.now()
 main()
-after = datetime.now()
+end = datetime.now()
 print()
-print('Total time for the execution of the app', after - before)
+print('Total time for the execution of the app: ', end - start )
