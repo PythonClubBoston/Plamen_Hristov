@@ -105,17 +105,8 @@
         print(d_in_utc)
         '2015-12-18 19:50:21+00:00'
 """
+
 import iso8601
-
-"""
-TASK
-1. Load catalog file
-2. Load the sales file
-"""
-
-
-
-
 from pprint import pprint
 from datetime import datetime
 
@@ -148,12 +139,12 @@ def print_total_stats(sales):
 
         print("""
       Обобщение                                                 
-      ---------                                                 
-          Общ брой продажби: {total_count}                              
-          Общо сума продажби: {total_amount: .2f}                     
-          Средна цена на продажба: {average_price: .2f} €                     
-          Начало на период на данните: {min_ts}
-          Край на период на данните: {max_ts} 
+-------------------------                                               
+Общ брой продажби: {total_count}                              
+Общо сума продажби: {total_amount: .2f}                     
+Средна цена на продажба: {average_price: .2f} €                     
+Начало на период на данните: {min_ts}
+Край на период на данните: {max_ts} 
              """.format(
         total_count = total_count,
         total_amount = total_amount,
@@ -185,24 +176,13 @@ def print_top_by_category(sales, catalog):
     amounts_by_category_sorted.sort(reverse=True)
 
     print("""Сума на продажби по категории (top 5) 
------------------------------""")
+-------------------------""")
 
     for total_amount, category_name in amounts_by_category_sorted[:5]:
-        print("     {}: {: .2f} €".format(category_name, total_amount))
+        print("{}: {: .2f} €".format(category_name, total_amount))
 
 def print_top_by_city(sales):
-
-    """
-        Сума на продажби по градове (top 5)
-        -----------------------------
-            Manchester: 100620.74 €
-            Liverpool: 96607.68 €
-            London: 92239.71 €
-            Nottingham: 90084.01 €
-            Glasgow: 87052.21 €
-    """
-
-    sales_by_city = {}
+    sales_by_city = {}      #key: city, value: accumulated sum of sales
 
     for sale in sales:
         city = sale[KEY_CITY]
@@ -221,19 +201,10 @@ def print_top_by_city(sales):
     sales_by_city_sorted.sort(reverse=True)
 
     for top_sales, top_city in sales_by_city_sorted[:5]:
-        print(' {}: {:.2f} €'.format(top_city, top_sales))
+        print(' {}: {: .2f} €'.format(top_city, top_sales))
 
 def print_top_by_hour(sales):
 
-    """
-        Сума на продажби по час (top 5)
-        -----------------------------
-            2015-12-01 12:00:00+01:00: 9209.70 €
-            2016-01-17 10:00:00+02:00: 8811.59 €
-            2016-01-05 20:00:00+01:00: 8590.52 €
-            2015-12-29 20:00:00+02:00: 8270.59 €
-            2016-01-05 10:00:00+01:00: 8028.91 €
-    """
     best_sales_by_hour = {}
 
     for sale in sales:
@@ -245,7 +216,6 @@ def print_top_by_hour(sales):
 
         best_sales_by_hour[ts] += price
 
-
     best_sales_by_hour_sorted = []
 
     for ts, price in best_sales_by_hour.items():
@@ -256,18 +226,22 @@ def print_top_by_hour(sales):
     for price, hour in best_sales_by_hour_sorted[:5]:
         print('{}: {: .2f}  €'.format(hour, price))
 
-
-
-
 def main():
 
     catalog = load_catalog(CATALOG_FILE_PATH)
     #pprint(catalog)
     sales = load_sales(SALES_FILE_PATH)
 
-    #print_total_stats(sales)
-    #print_top_by_category(sales, catalog)
-    #print_top_by_city(sales)
+    print_total_stats(sales)
+    print('-'*25)
+    print_top_by_category(sales, catalog)
+    print('-'*25)
+    print_top_by_city(sales)
+    print('-'*25)
     print_top_by_hour(sales)
 
+before = datetime.now()
 main()
+after = datetime.now()
+print()
+print('Total time for the execution of the app', after - before)
