@@ -122,10 +122,12 @@ TASK
 from pprint import pprint
 
 from lecture_5.solution.catalog import load_catalog
-from lecture_5.solution.sales import load_sales
+from lecture_5.solution.sales import load_sales, KEY_TS, KEY_PRICE, KEY_ITEM_ID
 
 CATALOG_FILE_PATH = '/home/plamen/PycharmProjects/lecture_5/solution/catalog.csv'
 SALES_FILE_PATH = '/home/plamen/PycharmProjects/lecture_5/solution/sales-10K.csv'
+
+
 
 def print_total_stats(sales):
 
@@ -137,10 +139,10 @@ def print_total_stats(sales):
 
 
         for sale in sales:  #see sales.load_sales() for details
-            total_amount += sale['price']
-            ts = sale['ts']
+            total_amount += sale[KEY_PRICE]
+            ts = sale[KEY_TS]
 
-            if min_timestamp is None or ts < min_timestamp:
+            if min_timestamp is None or ts < min_timestamp:   #alt min(sale['ts'] for sale in sales) 
                 min_timestamp = ts
 
             if max_timestamp is None or ts > max_timestamp:
@@ -162,8 +164,33 @@ def print_total_stats(sales):
         max_ts = max_timestamp
     )
           )
-def print_top_by_category(sales):
-    pass
+def print_top_by_category(sales, catalog):
+
+    amounts_by_category = {} # key: category_name, value: accumulated sum of sales
+
+    for sale in sales:
+        item_id = sale[KEY_ITEM_ID]
+        price = sale[KEY_PRICE]
+        category_name = catalog.get(item_id, None)
+
+        if category_name not in amounts_by_category:
+            amounts_by_category[category_name] = 0
+
+        amounts_by_category[category_name] += price
+
+        amounts_by_category_sorted = []
+
+
+    for category_name, total_amount in amounts_by_category.items():
+        amounts_by_category_sorted.append((total_amount, category_name))
+
+    amounts_by_category_sorted.sort(reverse=True)
+
+    print("""Сума на продажби по категории (top 5) 
+-----------------------------""")
+
+    for total_amount, category_name in amounts_by_category_sorted[:5]:
+        print("     {}: {: .2f} €".format(category_name, total_amount))
 
 def print_top_by_city(sales):
     pass
@@ -180,7 +207,7 @@ def main():
 
 
     print_total_stats(sales)
-    print_top_by_category(sales)
+    print_top_by_category(sales, catalog)
     print_top_by_city(sales)
     print_top_by_hour(sales)
 

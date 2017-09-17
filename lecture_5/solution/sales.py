@@ -7,6 +7,12 @@ COLUMN_CITY = 2
 COLUMN_TIMESTAMP = 3
 COLUMN_PRICE = 4
 
+KEY_ITEM_ID = 'item_id'
+KEY_COUNTRY = 'country'
+KEY_CITY = 'city'
+KEY_TS = 'ts'
+KEY_PRICE = 'price'
+
 """
 Data for sales in files 'sales-*.csv'
 Dанни за продажби - файлове 'sales-*.csv'
@@ -42,10 +48,11 @@ def load_sales(file_Path: str) -> list:
         reader = csv.reader(csvfile)
         for row in reader:
             sale = {}
-            sale['item_id'] = row[COLUMN_ITEM_ID]
-            sale['country'] = row[COLUMN_COUNTRY]
-            sale['city'] = row[COLUMN_CITY]
-            sale['ts'] = iso8601.parse_date(row[COLUMN_TIMESTAMP])
-            sale['price'] = float(row[COLUMN_PRICE])
+            sale[KEY_ITEM_ID] = row[COLUMN_ITEM_ID]
+            sale[KEY_COUNTRY] = row[COLUMN_COUNTRY]
+            sale[KEY_CITY] = row[COLUMN_CITY]
+            sale[KEY_TS] = iso8601.parse_date(row[COLUMN_TIMESTAMP])
+            sale[KEY_PRICE] = float(row[COLUMN_PRICE])
             result.append(sale)
     return result
+
