@@ -99,10 +99,57 @@ people = [
     },
 ]
 
-import itertools
+from pprint import pprint
+# import itertools
+#
+# print([
+#     (p1['name'], p2['name'])
+#     for p1, p2 in itertools.combinations(people, 2)
+#     if p1['gender'] != p2['gender'] and set(p1['interests']) & set(p2['interests'])
+# ])
 
-print([
-    (p1['name'], p2['name'])
-    for p1, p2 in itertools.combinations(people, 2)
-    if p1['gender'] != p2['gender'] and set(p1['interests']) & set(p2['interests'])
-])
+sorted_people = sorted(people, key=lambda p: (p['name'], p['gender']))
+print([person['name'] for person in people])
+
+#names entered by the user
+
+# names = [ 'Дарина', 'Лилия', 'Галя', '']
+#
+# all_non_empty = True
+#
+# for n in names:
+#     if not n:
+#         all_non_empty = False
+#         break
+# print("All are non-empty: ", all_non_empty)
+#
+# if all(names):
+#     print("OK")
+# else:
+#     print("Empty names are not allowed")
+
+# names1 = ["","","",""]
+#
+# if any(names1):
+#     print("OK")
+# else:
+#     print("All names are empty")
+
+names = [ 'Дарина', 'Лилия', 'Галя', 'Дани', 'Дени' ]
+# names_started_with_D = []
+# for name in names:
+#
+#     if name.startswith('Д'):
+#         names_started_with_D.append(name)
+# print(names_started_with_D)
+
+#-----------THE SAME WITH THE ABOVE
+
+names_filtred = list(filter(lambda n: n.startswith('Д'), names))
+print(names_filtred)
+
+# names_for_birthday_card = []
+# for n in filter(lambda n: n.startswith('Д'), names):
+#     names_for_birthday_card.append(n)
+#     if len(names_for_birthday_card) >= 2:
+#         break
