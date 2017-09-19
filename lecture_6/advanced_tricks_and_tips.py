@@ -8,7 +8,7 @@
 #
 # display_list(None)
 
-#----------- COMPREHENSIONS
+#-----------LIST COMPREHENSIONS
 
 
 # squares = []

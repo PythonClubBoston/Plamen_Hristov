@@ -1,3 +1,4 @@
+
 people = [
     {
         'name': "Мария",
@@ -100,7 +101,7 @@ people = [
 ]
 
 from pprint import pprint
-# import itertools
+import itertools
 #
 # print([
 #     (p1['name'], p2['name'])
@@ -108,8 +109,15 @@ from pprint import pprint
 #     if p1['gender'] != p2['gender'] and set(p1['interests']) & set(p2['interests'])
 # ])
 
-sorted_people = sorted(people, key=lambda p: (p['name'], p['gender']))
-print([person['name'] for person in people])
+# help(itertools)
+help(itertools.count)
+numbers = [1,2,3,4,4,5,1,1,1,1]
+names = [ 'Дарина', 'Лилия', 'Галя', 'Дани', 'Дени' ]
+
+
+
+# sorted_people = sorted(people, key=lambda p: (p['name'], p['gender']))
+# print([person['name'] for person in people])
 
 #names entered by the user
 
@@ -135,7 +143,6 @@ print([person['name'] for person in people])
 # else:
 #     print("All names are empty")
 
-names = [ 'Дарина', 'Лилия', 'Галя', 'Дани', 'Дени' ]
 # names_started_with_D = []
 # for name in names:
 #
@@ -145,8 +152,8 @@ names = [ 'Дарина', 'Лилия', 'Галя', 'Дани', 'Дени' ]
 
 #-----------THE SAME WITH THE ABOVE
 
-names_filtred = list(filter(lambda n: n.startswith('Д'), names))
-print(names_filtred)
+# names_filtred = list(filter(lambda n: n.startswith('Д'), names))
+# print(names_filtred)
 
 # names_for_birthday_card = []
 # for n in filter(lambda n: n.startswith('Д'), names):
