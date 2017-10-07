@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4cd4eba3-3263-4e90-b36c-a341118f646c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lecture_1/drawLines.py" afterPath="$PROJECT_DIR$/lecture_1/drawLines.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lecture_5/solution/advanced.py" afterPath="$PROJECT_DIR$/lecture_5/solution/advanced.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lecture_5/solution/analysis.py" afterPath="$PROJECT_DIR$/lecture_5/solution/analysis.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lecture_6/advanced_tricks_and_tips.py" afterPath="$PROJECT_DIR$/lecture_6/advanced_tricks_and_tips.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lecture_6/generators.py" afterPath="$PROJECT_DIR$/lecture_6/generators.py" />
-    </list>
+    <list default="true" id="4cd4eba3-3263-4e90-b36c-a341118f646c" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
