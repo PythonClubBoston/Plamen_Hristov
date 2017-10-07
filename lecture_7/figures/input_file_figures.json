@@ -1,0 +1,4 @@
+[
+    {"type_figure": "circle", "center_x": 0, "center_y": 0, "radius": 50, "color": "blue"},
+    {"type_figure": "circle", "center_x": 0, "center_y": 0, "radius": 100, "color": "red"}
+]

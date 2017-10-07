@@ -26,7 +26,7 @@ aa = a(1)
 print('Result from aa is: ',aa(5))
 
 
-print(a and b)
+
 
 # Sorting list of tuples, it happends element by element from tuple to tuple
 #print(data)
@@ -37,5 +37,12 @@ print(a and b)
 #Use list when you need to loop into the data and need results
 #for average price, or max and min price, start and end date...
 
+
+
+foo = [2, 18, 9, 22, 17, 24, 8, 12, 27]
+
+
+foo.append(map(lambda x: x * 2 + 10, foo))
+print(foo)
 
 

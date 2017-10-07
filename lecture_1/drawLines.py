@@ -2,7 +2,7 @@ import turtle
 paxsTurtle = turtle.Turtle()
 
 def drawLines(angle, length, turtle):
-    while
+    while:
         turtle.goto(0, 0)
         turtle.pendown()
         turtle.forward(length)

@@ -1,0 +1,7 @@
+[
+    {"type_figure": "square", "center_x": 0, "center_y": 0, "side": 2, "color": "black"},
+    {"type_figure": "square", "center_x": 0, "center_y": 0, "side": 100, "color": "red"},
+    {"type_figure": "square", "center_x": 0, "center_y": 0, "side": 200, "color": "blue"},
+    {"type_figure": "circle", "center_x": 0, "center_y": 0, "radius": 50, "color": "blue"},
+    {"type_figure": "circle", "center_x": 0, "center_y": 0, "radius": 100, "color": "red"}
+]

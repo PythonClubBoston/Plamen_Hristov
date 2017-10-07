@@ -70,5 +70,9 @@
 # print(rest)
 
 
+numbers = [1, 2, 3, 4, 5]
 
+sum_numbers = max(numbers)
+
+print(sum_numbers)
 

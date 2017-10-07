@@ -126,6 +126,7 @@ def print_total_stats(sales):
         min_timestamp = None
         max_timestamp = None
 
+        #for and if with itertools
 
         for sale in sales:  #see sales.load_sales() for details
             total_amount += sale[KEY_PRICE]

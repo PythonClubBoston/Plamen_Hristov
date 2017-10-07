@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="http://python3.softuni.bg/static/takovata.favicon.png?v=f35be6a776f37aa10ad66b98bbf00aa0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Лекция | Таковата</title>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta name="viewport" content="width=device-width">
+<link href="%D0%9E%D0%B1%D0%B5%D0%BA%D1%82%D0%BD%D0%BE_%D0%BE%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%B0%D0%BD%D0%BE_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D0%BD%D0%B5_%D1%81_Python_files/bootstrap.css" rel="stylesheet">
+<link href="%D0%9E%D0%B1%D0%B5%D0%BA%D1%82%D0%BD%D0%BE_%D0%BE%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%B0%D0%BD%D0%BE_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D0%BD%D0%B5_%D1%81_Python_files/animate.css" rel="stylesheet">
+<link href="%D0%9E%D0%B1%D0%B5%D0%BA%D1%82%D0%BD%D0%BE_%D0%BE%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%B0%D0%BD%D0%BE_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D0%BD%D0%B5_%D1%81_Python_files/light-bootstrap-dashboard.css" rel="stylesheet">
+<link href="%D0%9E%D0%B1%D0%B5%D0%BA%D1%82%D0%BD%D0%BE_%D0%BE%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%B0%D0%BD%D0%BE_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D0%BD%D0%B5_%D1%81_Python_files/pe-icon-7-stroke.css" rel="stylesheet">
+<link href="%D0%9E%D0%B1%D0%B5%D0%BA%D1%82%D0%BD%D0%BE_%D0%BE%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%B0%D0%BD%D0%BE_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D0%BD%D0%B5_%D1%81_Python_files/font-exo2.css" rel="stylesheet">
+<link href="%D0%9E%D0%B1%D0%B5%D0%BA%D1%82%D0%BD%D0%BE_%D0%BE%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%B0%D0%BD%D0%BE_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D0%BD%D0%B5_%D1%81_Python_files/style.css" rel="stylesheet">
+</head>
+<body class="" data-url-activity="ws://python3.softuni.bg/student/activity/ws/" cz-shortcut-listen="true">
+<div class="wrapper">
+
+
+<div class="sidebar" data-color="blue" data-image="/static/theme/img/sidebar-5.jpg?v=08efb632143669f82b09b39ce641a4d4">
+<div class="sidebar-wrapper">
+<div class="logo">
+
+<a href="#" class="simple-text">
+Таковата
+</a>
+
+</div>
+
+
+
+
+<ul class="nav">
+
+
+
+<li class="active">
+<a href="http://python3.softuni.bg/student/">
+<i class="pe-7s-note2"></i>
+<p>Текуща лекция</p>
+</a>
+</li><li class="toc"><a href="#toc-1">Какво е клас и обект?</a>
+<a href="#toc-2">ООП в Python</a>
+<a href="#toc-3">Ползите от ООП</a>
+<a href="#toc-4">Пример</a>
+<a href="#toc-5">Полезни функции</a>
+<a href="#toc-6">Пример за ООП и задачата за анализ на данни</a></li>
+
+
+
+<li>
+<a href="http://python3.softuni.bg/student/course/">
+<i class="pe-7s-news-paper"></i>
+<p>Курс</p>
+</a>
+</li>
+
+</ul>
+<div class="clearfix">&nbsp;</div>
+
+
+</div>
+</div>
+
+<div class="main-panel">
+
+<nav class="navbar navbar-default navbar-fixed ">
+<div class="container-fluid">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+<span class="sr-only">Навигация</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+
+<a class="navbar-brand" href="#">
+Лекция
+</a>
+
+</div>
+<div class="collapse navbar-collapse">
+<ul class="nav navbar-nav navbar-left">
+
+</ul>
+<ul class="nav navbar-nav navbar-right">
+
+
+<li>
+<a href="javascript:void(0)">
+<i class="pe-7s-news-paper"></i>
+Курс: Python 3
+</a>
+</li>
+
+<li>
+<a href="javascript:void(0)">
+<i class="pe-7s-user"></i>
+vld
+</a>
+</li>
+<li>
+<a href="http://python3.softuni.bg/logout/">
+Изход
+</a>
+</li>
+
+</ul>
+</div>
+</div>
+</nav>
+
+<div class="content">
+<div class="container-fluid">
+
+
+
+
+
+
+
+<div class="card">
+<div class="header">
+<div class="row margin-bottom">
+<div class="col-sm-10">
+<a href="http://python3.softuni.bg/student/course/">
+<small>Курс: Python 3</small>
+</a>
+</div>
+<div class="col-sm-2 text-right">
+<small>04.08.2016</small>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12">
+<h1 class="title">
+7. Обектно ориентирано програмиране с Python
+</h1>
+</div>
+</div>
+</div>
+<hr>
+<div class="content lecture-content fix-links" data-fix-links-template="/student/lecture/assignment/%40/?back=%2Fstudent%2Flecture%2F5680158d131b1642fba7379a%2F">
+<h2 id="toc-1">Какво е клас и обект?</h2>
+<p>Обектът е конструкция, обединяваща в себе си данни и методите за работа с тях.</p>
+<pre><code>from datetime import datetime
+
+d = datetime.now()
+
+# полета / атрибути / данни
+d.year
+d.hour
+
+# методи
+d.isoformat()
+d.replace(hour=0)
+</code></pre><p>Класът е дефиниция или шаблон, по който се създават обекти.</p>
+<h2 id="toc-2">ООП в Python</h2>
+<h3 id="-">Дефиниране на клас</h3>
+<pre><code>class Figure:
+    pass
+
+figure = Figure()
+</code></pre><blockquote>
+<p>Конвенцията за именоване на класове в Python е имената на класовете 
+да започват с главна буква, и да са CamelCase - също както в Java &amp; 
+C#.</p>
+</blockquote>
+<h3 id="-">Методи</h3>
+<p>Методите са функции, които са асоциирани към обектите, и (обикновено) работят с данните в тях.</p>
+<pre><code>from datetime import datetime
+d1 = datetime.now()
+d1.isoformat()   # isoformat() е метод на обекта d1
+
+d2 = datetime(2015, 1, 21, 18, 21, 22)
+d2.isoformat()
+</code></pre><p>Методите се дефинират като част от дефиницията на класовете:</p>
+<pre><code>class Figure:
+
+    def print(self):
+        print("Figure")
+
+figure = Figure()
+figure.print()
+</code></pre><p>Методите задължително трябва да имат поне един параметър, който е обектът, чрез който е извикан метода. В други езици това е <code>this</code>, но в Python трябва да се опише изрично. Името на този параметър може да е произволно, но по конвенция е прието да бъде <code>self</code>.</p>
+<p>Всичко, което важи за функции, важи и за методи - параметри (позиционни и keyword), default стойности, <code>*args</code> и <code>**kwargs</code>.</p>
+<blockquote>
+<p>Конвенцията за именоване на методи в Python е същата, както и за 
+обикновени функции - "snake_case" - имената са изцяло "lowercase" , и 
+разделителят между думите е "долно тире" / "подчертавка" - <code>__</code>.</p>
+</blockquote>
+<h4 id="-">Видимост на методи</h4>
+<p>Всички методи, дефинирани в класа, са видими и извън него - т.е. са <code>public</code>.</p>
+<p>Конвенцията за дефиниране на "private" методи е името на метода да започва с <code>_</code> - например <code>_prepare_data()</code>.</p>
+<h4 id="-">Конструктор</h4>
+<p>Конструктор на клас в Python се дефинира със специалния метод <code>__init__()</code></p>
+<pre><code>class Figure:
+    def __init__(self, position, color):
+        print("Position: ", position)
+        print("Color: ", color)
+
+figure = Figure((0, 0), 'black')   # параметрите, подадени при създаване на инстанция, се предават на __init__()
+</code></pre><h3 id="-">Атрибути (полета)</h3>
+<pre><code>class Figure:
+
+    def __init__(self, center_x, center_y, color='black'):
+        self.center_x = center_x
+        self.center_y = center_y
+        self.color  = color
+</code></pre><p>Стандарт в Python е атрибутите да се дефинират в конструктора <code>__init__ ()</code>.
+ Въпреки, че в Python е възможно да дефинирате нов атрибут навсякъде в 
+програмата си, стремете се да се придържате към дефинирането им само в 
+конструктора.</p>
+<blockquote>
+<p>Конвенцията за именоване на атрибути в Python е същата, както и за 
+обикновени променливи - "snake_case" - имената са изцяло "lowercase" , и
+ разделителят между думите е "долно тире" / "подчертавка" - <code>__</code>.</p>
+</blockquote>
+<h4 id="-">Видимост на полета</h4>
+<p>Всички полета, дефинирани в класа, са видими и извън него - т.е. са <code>public</code>.</p>
+<p>Конвенцията за дефиниране на "private" полета е името на полето да започва с <code>_</code> - например <code>_color</code>.</p>
+<pre><code>class Figure:
+
+    def __init__(self, center_x, center_y, color='black'):
+        self._center_x = center_x
+        self._center_y = center_y
+        self._color  = color
+
+# полетата _color, _center_x и _center_y са видими, но не бива да се достъпват директно.
+</code></pre><h3 id="-override-">Наследяване и override на методи</h3>
+<pre><code>class Figure:
+    def __init__(self, center_x, center_y, color='black'):
+        self.center_x = center_x
+        self.center_y = center_y
+        self.color = color
+
+    def scale(scale_factor):
+        # nothing to do here - scaling does not affect center coordinates
+        pass
+
+class Circle(Figure):
+    def __init__(self, center_x, center_y, radius, color='black'):
+        super().__init__(center_x, center_y, color)
+        self.radius = radius
+
+    def scale(scale_factor):
+        super().scale(scale_factor)   # it is a GOOD idea to always call the super() method
+        self.radius  = self.radius * scale_factor
+</code></pre><p>Наследяването се прави, като при дефиниране на класа в 
+скоби след името се поставят родителските класове, от които новият клас 
+трябва да наследи.</p>
+<p>Python поддържа множествено наследяване, и благодарение на 
+спецификите на реализацията на обекти и класове в езика, множественото 
+наследяване работи много добре, и се използва широко.</p>
+<p>За да извикате родителския метод, в Python e необходимо да използвате <code>super()</code> - <strong>обърнете внимание на скобите</strong>.</p>
+<h3 id="-">Специални методи</h3>
+<p>В Python има немалко специални методи, които можете да предефинирате.
+ Имената на тези методи са оградени с двойни долни тирета - пример за 
+това е конструкторът <code>__init__</code>.</p>
+<p>Най-често използваният специален метод, освен конструктора, е <code>__str__</code> - еквивалентът на <code>toString()</code> в Java и <code>ToString()</code> в C#.</p>
+<pre><code>class Figure:
+    def __init__(self, center_x, center_y, color='black'):
+        self.center_x = center_x
+        self.center_y = center_y
+        self.color = color
+
+    def __str__(self):
+        return "Figure - center_x={} , center_y={}, color={}".format(
+            self.center_x,
+            self.center_y,
+            self.color
+        )
+
+f = Figure(10, 20, 'red')
+print(str(f))
+print(f)
+print("This is a {}".format(f))
+</code></pre><p>В Python има и още един стандартен метод с подобно предназначение - <code>__repr__</code> (съкращение от representation - представяне на обекта).</p>
+<p>Обикновено <code>__repr__</code> се използва за техническо 
+представяне на обекта като string, като в него е добре да се включи 
+цялата информация за обекта, която да помогне на програмиста да се 
+ориентира за състоянието на обекта. Методът <code>__str__</code> се 
+използва за представяне на обекта на потребителя - обикновено той 
+включва "човешко" форматиране на данните, локализация и други. Ако в 
+клас е дефиниран само един от тези два метода, Python автоматично ще 
+използва дефинираният метод, когато е необходимо.</p>
+<p>Други специални методи могат да бъдат предефинирани в класа, за 
+overload на оператори, контрол на достъп до атрибути на обектите и много
+ други.</p>
+<pre><code>class Figure:
+    def __init__(self, center_x, center_y, color='black'):
+        self.center_x = center_x
+        self.center_y = center_y
+        self.color = color
+
+    def __eq__(self, other):
+        return (
+            self.center_x == other.center_x
+            and self.center_y == other.center_y
+            and self.color == other.color
+        )
+
+...
+
+f = Figure(10, 20, 'red')
+f2 = Figure(10, 20, 'red')
+
+...
+
+print(f == f2)
+</code></pre><p>Пълно описание на тези специални методи можете да намерите в <a href="https://docs.python.org/3/reference/datamodel.html#basic-customization" target="_blank">документацията на Python</a> .</p>
+<h2 id="toc-3">Ползите от ООП</h2>
+<p>ООП е една от основните парадигми в програмирането. <a href="https://en.wikipedia.org/wiki/Object-oriented_programming" target="_blank">Wikipedia - OOP</a></p>
+<p>Възникнала преди повече от 60 години, в зората на компютърната 
+индустрия, и до днес ООП продължава да заема централно място под една 
+или друга форма в модерните езици за програмиране.</p>
+<p>По-долу са обяснени само някои от предимствата, които ни дава този подход на изграждане на софтуерни програми.</p>
+<h3 id="-">Енкапсулация</h3>
+<p>Една от най-големите ползи от ООП е възможността да "скрием" 
+детайлите на реализацията от хората, които ще използват класовете, които
+ създаваме. При това основният момент не е самото "криене", а това 
+другите хора и класове да не се занимават и да не се налага да знаят 
+детайлите за вътрешното представяне на информацията в обекта.</p>
+<p>Това, от една страна улеснява много използването на нашия код, а от 
+друга дава възможност да променяме вътрешното представяне на 
+информацията, без да е необходимо останалата част от кода да бъде 
+променяна.</p>
+<p>Вторият аспект на енкапсулацията е, че имаме възможност да 
+контролираме достъпа и съдържанието на данните, с които работи обекта.</p>
+<h3 id="-">Полиморфизъм</h3>
+<p>Чрез наследяването на класове, имаме възможност да създадем базов 
+клас, които дефинира поведение (методи) и данни, и наследници на този 
+клас, които реализират специфични функционалности и разширяват базовия 
+клас.</p>
+<p>Полиморфизмът ни дава възможност да работим с обекти от наследяващите
+ класове, като използваме само базовите методи, без да се интересуваме 
+на какви класове конкретно са инстанции те.</p>
+<p>В примера по-долу ще покажем нагледен пример за полиморфизъм.</p>
+<h2 id="toc-4">Пример</h2>
+<p>Нека се опитаме на превърнем това:</p>
+<pre><code>[
+    {"type": "square", "center_x": 0, "center_y": 0, "side": 2, "color": "black"},
+    {"type": "square", "center_x": 0, "center_y": 0, "side": 100, "color": "red"},
+    {"type": "square", "center_x": 0, "center_y": 0, "side": 200, "color": "blue"},
+    {"type": "circle", "center_x": 0, "center_y": 0, "radius": 50, "color": "blue"},
+    {"type": "circle", "center_x": 0, "center_y": 0, "radius": 100, "color": "red"}
+]
+</code></pre><p>в това:</p>
+<p><img src="%D0%9E%D0%B1%D0%B5%D0%BA%D1%82%D0%BD%D0%BE_%D0%BE%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%B0%D0%BD%D0%BE_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D0%BD%D0%B5_%D1%81_Python_files/draw-result.png" alt="Начертани фигури на база дефиницията в JSON файла"></p>
+<pre><code>from turtle import Turtle, done as turtle_done
+
+def main():
+    t = Turtle()
+    t.speed("fastest")
+    figures = create_figures(FIGURES_INPUT_DATA)
+    # figures = [
+    #     Circle(0, 0, radius=100, color='green'),
+    #     SquareEasiest(0, 0, radius=100, color='red')
+    # ]
+    for figure in figures:
+        figure.draw(t)
+
+    turtle_done()
+
+# ========================================================
+
+FIGURES_INPUT_DATA = [
+    {"type": "square", "center_x": 0, "center_y": 0, "side": 2, "color": "black"},
+    {"type": "square", "center_x": 0, "center_y": 0, "side": 100, "color": "red"},
+    {"type": "square", "center_x": 0, "center_y": 0, "side": 200, "color": "blue"},
+    {"type": "circle", "center_x": 0, "center_y": 0, "radius": 50, "color": "blue"},
+    {"type": "circle", "center_x": 0, "center_y": 0, "radius": 100, "color": "red"}
+]
+
+class Figure:
+
+    def __init__(self, center_x: int, center_y: int, color: str):
+        super().__init__()
+        self.center_x = center_x
+        self.center_y = center_y
+        self.color = color
+
+    def __str__(self):
+        return "Figure : ({}, {})".format(self.center_x, self.center_y)
+
+    def draw(self, turtle):
+        turtle.color(self.color)
+
+    def jump_to(self, turtle, x, y):
+        turtle.penup()
+        turtle.goto(x, y)
+        turtle.pendown()
+
+class Circle(Figure):
+    steps = None
+
+    def __init__(self, center_x: int=0, center_y: int=0, radius: int=0, color: str='black'):
+        super().__init__(center_x, center_y, color)
+        self.radius = radius
+
+    def draw(self, turtle: Turtle):
+        super().draw(turtle)
+        self.jump_to(turtle, self.center_x, self.center_y - self.radius)
+        turtle.circle(self.radius, steps=self.steps)
+        self.jump_to(turtle, 0, 0)
+
+class SquareEasy(Circle):
+    def __init__(self, center_x: int=0, center_y: int=0, radius: int=0, color: str='black'):
+        super().__init__(center_x, center_y, radius, color)
+        self.steps = 4
+
+class SquareEasiest(Circle):
+    steps = 4
+
+class Square(Figure):
+
+    def __init__(self, center_x: int=0, center_y: int=0, side: int=0, color: str='black'):
+        super().__init__(center_x, center_y, color)
+        self.side = side
+
+    def draw(self, turtle: Turtle):
+        super().draw(turtle)
+        self.jump_to(turtle,
+                     self.center_x - self.side/2,
+                     self.center_y - self.side/2)
+
+        for _ in range(4):
+            turtle.forward(self.side)
+            turtle.left(90)
+
+        self.jump_to(turtle, 0, 0)
+
+def create_figures(figures_input_data: list) -&gt; list:
+    """
+    Return a list of Figure instances
+    :param figures_list:
+    :return:
+    """
+    result = []
+    for fdata in figures_input_data:
+        type = fdata['type']
+        if type == 'square':
+            figure = Square(
+                center_x=fdata['center_x'],
+                center_y=fdata['center_y'],
+                side=fdata['side'],
+                color=fdata['color'],
+            )
+        elif type == 'circle':
+            figure = Circle(
+                center_x=fdata['center_x'],
+                center_y=fdata['center_y'],
+                radius=fdata['radius'],
+                color=fdata['color'],
+            )
+        else:
+            raise Exception("Unsupported figure type: " + type)
+        result.append(figure)
+
+    return result
+
+if __name__ == '__main__':
+    main()
+</code></pre><h2 id="toc-5">Полезни функции</h2>
+<p>Тези стандартни функции в Python ни дават възможност да получим информация за обектите по време на изпълнение на програмата.</p>
+<h3 id="isinstance">isinstance</h3>
+<p>Проверка дали обект е инстанция на даден клас</p>
+<pre><code>from datetime import datetime, date
+
+d = date.today()
+
+print(isinstance(d, date))  # True
+
+print(isinstance(d, datetime))  # False
+</code></pre><h3 id="hasattr-setattr-getattr">hasattr, setattr и getattr</h3>
+<pre><code>from datetime import datetime, date
+
+d = date.today()
+dt = datetime.now()
+
+hasattr(d, 'year')   # True
+hasattr(dt, 'year')  # True
+
+hasattr(d, 'hour')   # False
+hasattr(dt, 'hour')  # True
+
+...
+
+print(getattr(d, 'year'))   # 2016
+
+print(getattr(d, 'hour'))   # will raise an AttributeError
+
+print(getattr(d, 'hour', 'no hour is defined in d'))   # default value if the attribute does not exist
+</code></pre><h3 id="issubclass">issubclass</h3>
+<pre><code>issubclass(date, datetime)  # False
+
+issubclass(datetime, date)  # True
+</code></pre><hr>
+<p>draw_functions.py</p>
+<pre><code>import sys
+import json
+import turtle
+
+from figures import draw_circle, draw_square
+
+def main():
+    if len(sys.argv) &lt; 2:
+        print("Usage: {} input-file.json".format(sys.argv[0]))
+        return 1
+
+    try:
+        input_data = load_input_data(sys.argv[1])
+        draw_figures(input_data)
+    except Exception as e:
+        print("Invalid input file provided! Error: " + str(e))
+        return 2
+
+def load_input_data(input_filename):
+    with open(input_filename) as f:
+        input_data = json.load(f)
+        return input_data
+
+def draw_figures(figures_info):
+    t = turtle.Turtle()
+    t.speed('fast')
+    for f_info in figures_info:
+        figure_type = f_info['type']
+        if figure_type == 'square':
+            draw_square(
+                turtle_instance=t,
+                center_x=f_info['center_x'],
+                center_y=f_info['center_y'],
+                side=f_info['side'],
+                color=f_info['color']
+            )
+        elif figure_type == 'circle':
+            draw_circle(
+                turtle_instance=t,
+                center_x=f_info['center_x'],
+                center_y=f_info['center_y'],
+                radius=f_info['radius'],
+                color=f_info['color']
+            )
+        else:
+            raise ValueError("Unsupported figure")
+
+    turtle.exitonclick()
+
+if __name__ == "__main__":
+    sys.exit(main())
+</code></pre><p>figures.py</p>
+<pre><code>def draw_circle(turtle_instance, center_x, center_y, radius, color):
+    turtle_instance.penup()
+    turtle_instance.goto(center_x - radius, center_y)  # From docs: The center is radius units left of the turtle;
+    turtle_instance.pendown()
+    turtle_instance.color(color)
+    turtle_instance.circle(radius)
+
+def draw_square(turtle_instance, center_x, center_y, side, color):
+    half_side = side / 2
+    left = center_x - half_side
+    top = center_y + half_side
+
+    turtle_instance.penup()
+    turtle_instance.goto(left, top)
+    turtle_instance.pendown()
+    turtle_instance.color(color)
+    turtle_instance.forward(1)
+    turtle_instance.setheading(270)  # point the turtle down
+    for _ in range(4):
+        turtle_instance.forward(side)
+        turtle_instance.left(90)
+</code></pre><h2 id="toc-6">Пример за ООП и задачата за анализ на данни</h2>
+<pre><code>from pprint import pprint
+
+import csv
+import iso8601
+
+CATALOG_FILENAME = 'catalog.csv'
+SALES_FILENAME = 'sales-10K.csv'
+
+COLUMN_ITEM_ID = 0
+COLUMN_COUNTRY = 1
+COLUMN_CITY = 2
+COLUMN_TS = 3
+COLUMN_PRICE = 4
+
+KEY_ITEM_ID = 'item_id'
+KEY_COUNTRY = 'country'
+KEY_CITY = 'city'
+KEY_TS = 'ts'
+KEY_PRICE = 'price'
+
+COLUMN_ITEM_ID = 0
+COLUMN_CATEGORY = 5
+
+
+def main():
+    catalog = load_catalog(CATALOG_FILENAME)
+    print("Analysis")
+
+    analyzers = [
+        TotalsAnalyzer(),
+        AmountsByCategoryAnalyzer(catalog),
+        AmountsByCityAnalyzer(catalog),
+        AmountsByHourAnalyzer(catalog),
+    ]
+
+    load_sales_generator_object = load_sales(SALES_FILENAME)
+    for sale in load_sales_generator_object:
+        for a in analyzers:
+            a.analyze_sale(sale)
+
+    for a in analyzers:
+        a.print_results()
+
+# -----------------------------------------------
+
+
+class BaseAnalyzer:
+
+    def analyze_sale(self, sale):
+        ...
+
+    def print_results(self):
+        ...
+
+
+class TotalsAnalyzer(BaseAnalyzer):
+
+    def __init__(self):
+        super().__init__()
+        self.total_count = 0
+        self.total_amount = 0
+        self.min_timestamp = None
+        self.max_timestamp = None
+
+    def analyze_sale(self, sale):
+        self.total_amount += sale[KEY_PRICE]
+        self.total_count += 1
+
+        ts = sale[KEY_TS]
+        if self.min_timestamp is None or ts &lt; self.min_timestamp:
+            self.min_timestamp = ts
+        if self.max_timestamp is None or ts &gt; self.max_timestamp:
+            self.max_timestamp = ts
+
+    def print_results(self):
+        print("""
+Обобщение
+---------
+    Общ брой продажби: {total_count}
+    Общо сума продажби: {total_amount:.2f} €
+    Средна цена на продажба: {avegage_price} €
+    Начало на период на данните: {min_ts}
+    Край на период на данните: {max_ts}
+    """.format(
+            total_count=self.total_count,
+            total_amount=self.total_amount,
+            avegage_price=self.total_amount / self.total_count if self.total_count else None,
+            min_ts=self.min_timestamp,
+            max_ts=self.max_timestamp,
+        ))
+
+
+class AmountsGroupedAnalyzer(BaseAnalyzer):
+    group_by_title = ''
+
+    def __init__(self, catalog ):
+        super().__init__()
+        self.amounts_grouped = {}  # key : category name  ,  value : accumulated sum of sales
+        self.catalog = catalog
+
+    def analyze_sale(self, sale):
+        price = sale[KEY_PRICE]
+        group_by_value = self.get_group_by_value(sale)
+        if group_by_value not in self.amounts_grouped:
+            self.amounts_grouped[group_by_value] = 0
+        self.amounts_grouped[group_by_value] += price
+
+    def get_group_by_value(self, sale):
+        ...
+
+    def print_results(self):
+        # [ (category1, sales_amount1), (category2, sales_amount2),...]
+        amounts_grouped_sorted = list(self.amounts_grouped.items())
+        amounts_grouped_sorted.sort(key=lambda kv: kv[1], reverse=True)
+
+        print("""
+Сума на продажби по {} (top 5)
+-----------------------------
+    """.format(self.group_by_title))
+        for category_name, total_amount in amounts_grouped_sorted[:5]:
+            print("     {}: {:.2f} €".format(category_name, total_amount))
+
+
+class AmountsByCategoryAnalyzer(AmountsGroupedAnalyzer):
+    group_by_title = 'категории'
+
+    def get_group_by_value(self, sale):
+        item_id = sale[KEY_ITEM_ID]
+        return self.catalog.get(item_id, None)
+
+
+class AmountsByCityAnalyzer(AmountsGroupedAnalyzer):
+    group_by_title = 'градове'
+
+    def get_group_by_value(self, sale):
+        return sale[KEY_CITY]
+
+
+class AmountsByHourAnalyzer(AmountsGroupedAnalyzer):
+    group_by_title = 'часове'
+
+    def get_group_by_value(self, sale):
+        ts = sale[KEY_TS]
+        ts = ts.replace(minute=0, second=0, microsecond=0)
+        return ts
+
+
+
+
+
+
+def load_catalog(filename: str) -&gt; dict:
+    """
+    Expected columns in catalog file:
+
+    1. Идентификационен номер на артикула;
+    2. Наименование на артикула;
+    3. Цветове, в които артикулът е наличен;
+    4. Група на артикула;
+    5. Спорт, за който е предназначен артикулът;
+    6. Категория
+    7. Подкатегория
+    8. Пол, за който е предназначен артикула - мъже, жени, unisex, деца, бебета
+
+    Result:
+        {
+            # item_id : category name
+            "J11328": "SHOES",
+            ...
+        }
+
+    """
+    result = {}
+    with open(filename, 'r', encoding='utf-8') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            item_id = row[COLUMN_ITEM_ID]
+            category = row[COLUMN_CATEGORY]
+            result[item_id] = category
+    return result
+
+
+
+
+def load_sales(filename: str) -&gt; list:
+    """
+    Expected columns in catalog file:
+        1. Идентификационен номер на артикула;
+        2. Държава, в която е била извършена продажбата (ISO code)
+        3. Име на град, в която е била извършена продажбата;
+        4. Дата/час на продажбата с timezone, във формат ISO8601;
+        5. Цена на продажбата (цените на един и същ артикул в различните държави са различни)
+
+
+    Result:
+
+        [
+            {
+                "item_id": "561712",
+                "country": "ES",
+                "city": "Murcia",
+                "ts": datetime(2015, 12, 11, 17, 14, 05, tz=+01:00),
+                "price": 43.21
+            },
+            {
+                ...
+            }
+            ..
+        ]
+    """
+    with open(filename, 'r', encoding='utf-8') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            sale = {}
+            sale[KEY_ITEM_ID] = row[COLUMN_ITEM_ID]
+            sale[KEY_COUNTRY] = row[COLUMN_COUNTRY]
+            sale[KEY_CITY] = row[COLUMN_CITY]
+            sale[KEY_TS] = iso8601.parse_date(row[COLUMN_TS])
+            sale[KEY_PRICE] = float(row[COLUMN_PRICE])
+            yield sale
+
+
+if __name__ == '__main__':
+    main()
+</code></pre>
+</div>
+
+<div class="content">
+<h5>Задачи</h5>
+<div class="table-responsive table-full-width">
+<table class="table table-hover table-striped">
+<thead>
+<tr>
+<td class="td-min-width">&nbsp;</td>
+<td class="td-min-width">№</td>
+<td>Име на задачата</td>
+</tr>
+</thead>
+<tbody>
+
+
+<tr>
+<td>&nbsp;</td>
+<td><a href="http://python3.softuni.bg/student/lecture/assignment/56a123096e8efb1653742a5f/">1</a></td>
+<td><a href="http://python3.softuni.bg/student/lecture/assignment/56a123096e8efb1653742a5f/">Разширете програмата с възможност за нови фигури</a></td>
+</tr>
+
+
+<tr>
+<td>&nbsp;</td>
+<td><a href="http://python3.softuni.bg/student/lecture/assignment/56a159e36e8efb1652742f4e/">2</a></td>
+<td><a href="http://python3.softuni.bg/student/lecture/assignment/56a159e36e8efb1652742f4e/">Разширете програмата от предишната задача така, че да може да чете различни входни формати</a></td>
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<footer class="footer">
+<div class="container-fluid">
+<nav class="pull-left hidden-xs">
+<ul>
+<li>
+<a href="http://softuni.bg/" target="_blank">
+<img src="%D0%9E%D0%B1%D0%B5%D0%BA%D1%82%D0%BD%D0%BE_%D0%BE%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%B0%D0%BD%D0%BE_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D0%BD%D0%B5_%D1%81_Python_files/logo.png" class="logo-footer-softuni">
+</a>
+</li>
+<li>
+<a href="https://softuni.bg/trainings/1281/python-programming-january-2016" target="_blank">
+Курс Python 3
+</a>
+</li>
+</ul>
+</nav>
+<p class="copyright pull-right">
+<span>
+© 2017
+&nbsp;
+<a href="https://twitter.com/b_chervenkov" target="_blank">Борис Червенков</a>
+&amp;
+<a href="http://gatakka.eu/" target="_blank">Иван Ванков</a>
+</span>
+<span class="hidden-xs">
+|
+дизайн: <a href="http://www.creative-tim.com/">Creative Tim</a>
+</span>
+</p>
+</div>
+</footer>
+
+
+</div>
+</div>
+
+<!-- Core JS Files -->
+<script src="%D0%9E%D0%B1%D0%B5%D0%BA%D1%82%D0%BD%D0%BE_%D0%BE%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%B0%D0%BD%D0%BE_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D0%BD%D0%B5_%D1%81_Python_files/jquery-1.js" type="text/javascript"></script>
+<script src="%D0%9E%D0%B1%D0%B5%D0%BA%D1%82%D0%BD%D0%BE_%D0%BE%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%B0%D0%BD%D0%BE_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D0%BD%D0%B5_%D1%81_Python_files/bootstrap.js" type="text/javascript"></script>
+<script src="%D0%9E%D0%B1%D0%B5%D0%BA%D1%82%D0%BD%D0%BE_%D0%BE%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%B0%D0%BD%D0%BE_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D0%BD%D0%B5_%D1%81_Python_files/bootstrap-notify.js" type="text/javascript"></script>
+
+
+
+<script src="%D0%9E%D0%B1%D0%B5%D0%BA%D1%82%D0%BD%D0%BE_%D0%BE%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%B0%D0%BD%D0%BE_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D0%BD%D0%B5_%D1%81_Python_files/fix-links.js" type="text/javascript"></script><script src="%D0%9E%D0%B1%D0%B5%D0%BA%D1%82%D0%BD%D0%BE_%D0%BE%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%B0%D0%BD%D0%BE_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D0%BD%D0%B5_%D1%81_Python_files/text-toc.js" type="text/javascript"></script><script src="%D0%9E%D0%B1%D0%B5%D0%BA%D1%82%D0%BD%D0%BE_%D0%BE%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%B0%D0%BD%D0%BE_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D0%BD%D0%B5_%D1%81_Python_files/activity.js" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+
+$(document).on('ready', function(){
+var toc = createTOC('.lecture-content', 2, 2);
+if (toc) {
+$('.sidebar-wrapper .nav li.active').after('<li class="toc">' + toc + '</li>')
+}
+});
+
+//]]>
+</script>
+
+
+</body></html>
