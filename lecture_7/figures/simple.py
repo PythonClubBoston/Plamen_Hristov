@@ -16,8 +16,8 @@ class Circle(Figure):
 
 class Square(Figure):
 
-    def __init__(self, type_figure, center_x, center_y, side, color='black'):
-        super().__init__(type_figure, center_x, center_y, color)
+    def __init__(self, side, **kwargs):
+        super().__init__(**kwargs)
         self.side = side
 
 

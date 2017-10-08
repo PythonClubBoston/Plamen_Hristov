@@ -4,6 +4,8 @@ import turtle
 
 from simple import Circle, Square
 
+FIGURE_TYPES = {'circle': Circle, 'square': Square}
+
 def main():
     if len(sys.argv) < 2:
         print("Usage: {} input-file.json".format(sys.argv[0]))
@@ -22,35 +24,16 @@ def load_input_data(input_filename):
         input_data = json.load(f)
         return input_data
 
-def create_figures(input_data: dict)-> []:
+def create_figures(input_data: dict)-> []: # return List of objects type Figure
     result = []
-    i = 1
     for f_info in input_data:
         type_figure = f_info['type_figure']
-        if type_figure == 'square':
-            square = Square(**f_info)
-            # square = Square(
-            #     type_figure = f_info['type_figure'],
-            #     center_x=f_info['center_x'],
-            #     center_y=f_info['center_y'],
-            #     side=f_info['side'],
-            #     color=f_info['color']
-            # )
-            result.append(square)
 
-        elif type_figure == 'circle':
-            circle = Circle(**f_info)
-            # circle =  Circle(
-            #     type_figure=f_info['type_figure'],
-            #     center_x=f_info['center_x'],
-            #     center_y=f_info['center_y'],
-            #     radius=f_info['radius'],
-            #     color=f_info['color']
-            # )
-            result.append(circle)
+        if type_figure in FIGURE_TYPES:
+            figure_class = FIGURE_TYPES[type_figure]
+            result.append(figure_class(**f_info))
         else:
             raise ValueError("Unsupported figure")
-
     return result
 
 def draw_figures(figures: []):

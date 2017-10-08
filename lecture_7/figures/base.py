@@ -7,6 +7,10 @@ class Figure:
         self.center_y =  center_y
         self.color = color
 
+        if any(v is None for v in [self.type_figure, self.center_x, self.center_y, self.color]):
+            raise ValueError('Arguments missing')
+
+
     def __str__(self):
         return "Figure center_x is {}" \
                " center_y is {} and the color is {} the type is {}".format(
