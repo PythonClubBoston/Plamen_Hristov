@@ -2,48 +2,55 @@ import sys
 import json
 import turtle
 
-from figures import draw_circle, draw_square
+from simple_figures import Circle, Square, Rectangular
+from complex_figures import Polygon, Pie
+
+
+FIGURE_TYPES = {'circle': Circle, 'square': Square, 'rectangular' : Rectangular, 'polygon' : Polygon, 'pie' : Pie}
 
 def main():
+
     if len(sys.argv) < 2:
         print("Usage: {} input-file.json".format(sys.argv[0]))
         return 1
 
     try:
         input_data = load_input_data(sys.argv[1])
-        draw_figures(input_data)
+        figures_info = create_figures(input_data)
+        draw_figures(figures_info)
+
     except Exception as e:
         print("Invalid input file provided! Error: " + str(e))
         return 2
 
 def load_input_data(input_filename):
+
     with open(input_filename) as f:
         input_data = json.load(f)
         return input_data
 
-def draw_figures(figures_info):
-    t = turtle.Turtle()
-    t.speed('fast')
-    for f_info in figures_info:
-        figure_type = f_info['type']
-        if figure_type == 'square':
-            draw_square(
-                turtle_instance=t,
-                center_x=f_info['center_x'],
-                center_y=f_info['center_y'],
-                side=f_info['side'],
-                color=f_info['color']
-            )
-        elif figure_type == 'circle':
-            draw_circle(
-                turtle_instance=t,
-                center_x=f_info['center_x'],
-                center_y=f_info['center_y'],
-                radius=f_info['radius'],
-                color=f_info['color']
-            )
+
+def create_figures(input_data: dict)-> []: #Will create list of
+    result = []
+    for figure in input_data:
+        figure_type = figure['type']
+        del figure['type']
+        if figure_type in FIGURE_TYPES:
+            figure_class = FIGURE_TYPES[figure_type]
+            result.append(figure_class(**figure))
         else:
-            raise ValueError("Unsupported figure")
+            raise ValueError('Unsupported type')
+
+    return result
+
+
+
+def draw_figures(figures:[]):
+
+    for figure in figures:
+        t = turtle.Turtle()
+        t.speed('fast')
+        figure.draw(t)
 
     turtle.exitonclick()
 

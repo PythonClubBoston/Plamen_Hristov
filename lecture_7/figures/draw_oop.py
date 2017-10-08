@@ -34,6 +34,7 @@ def create_figures(input_data: dict)-> []: # return List of objects type Figure
             result.append(figure_class(**f_info))
         else:
             raise ValueError("Unsupported figure")
+
     return result
 
 def draw_figures(figures: []):
