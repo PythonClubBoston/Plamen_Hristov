@@ -109,10 +109,10 @@ def print_top_by_hour(sales):
 
 def main():
     catalogs = load_catalog(CATALOG_FILE_PATH)
-    # sales = load_sales(SALES_FILE_PATH)
-    # top_sales_by_cities(sales)
-    # summary_sales(sales)
-    # print_top_by_hour(sales)
+    sales = load_sales(SALES_FILE_PATH)
+    top_sales_by_cities(sales)
+    summary_sales(sales)
+    print_top_by_hour(sales)
 
     total_count = 0
     total_amount = 0
