@@ -1,0 +1,48 @@
+//Database is NorthWind Microsoft
+
+select 
+    * 
+from 
+    Product 
+where 
+    SupplierId = 1 
+order by UnitPrice desc
+
+limit 2 offset 1
+
+
+//Limit fields
+select 
+    id, ProductName, CategoryId, UnitPrice
+from 
+    Product 
+where 
+    SupplierId = 1 
+order by UnitPrice desc
+limit 2 offset 1
+
+//Insert
+
+insert into Employee (FirstName, LastName) values ('Plamen', 'Hristov');
+
+//Update, Best Practice -> always write first the where word first and then return to from 
+
+update 
+    Employee
+set 
+    FirstName = 'pax'
+where 
+    LastName = 'Hristov'
+
+//Delete, Best Practice -> always write first the where word and then return to from 
+ 
+
+delete from 
+    Employee
+where 
+    FirstName = 'pax'
+    and
+        LastName = 'Hristov'
+
+  
+

@@ -25,7 +25,7 @@ COLUMN_CATEGORY = 5
 def main():
     catalog = load_catalog(CATALOG_FILENAME)
     print("Analysis")
-
+    count = 0
     analyzers = [
         TotalsAnalyzer(),
         AmountsByCategoryAnalyzer(catalog),
@@ -35,6 +35,8 @@ def main():
 
     load_sales_generator_object = load_sales(SALES_FILENAME)
     for sale in load_sales_generator_object:
+        print(count)
+        count += 1
         for a in analyzers:
             a.analyze_sale(sale)
 
@@ -210,6 +212,7 @@ def load_sales(filename: str) -> list:
     """
     with open(filename, 'r', encoding='utf-8') as f:
         reader = csv.reader(f)
+        count = 0
         for row in reader:
             sale = {}
             sale[KEY_ITEM_ID] = row[COLUMN_ITEM_ID]
@@ -217,6 +220,7 @@ def load_sales(filename: str) -> list:
             sale[KEY_CITY] = row[COLUMN_CITY]
             sale[KEY_TS] = iso8601.parse_date(row[COLUMN_TS])
             sale[KEY_PRICE] = float(row[COLUMN_PRICE])
+            print(count)
             yield sale
 
 
