@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4cd4eba3-3263-4e90-b36c-a341118f646c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SQLScripts" afterPath="$PROJECT_DIR$/SQLScripts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lecture_8/sqliteAndPython.py" afterPath="$PROJECT_DIR$/lecture_8/sqliteAndPython.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lecture_8/sqlite_demo.py" afterPath="$PROJECT_DIR$/lecture_8/sqlite_demo.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,9 +29,11 @@
       <file leaf-file-name="sqlite_demo.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lecture_8/sqlite_demo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-              <folding />
+            <state relative-caret-position="105">
+              <caret line="7" column="88" lean-forward="false" selection-start-line="7" selection-start-column="88" selection-end-line="7" selection-end-column="88" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -134,9 +134,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="596" />
+    <option name="x" value="607" />
     <option name="y" value="24" />
-    <option name="width" value="1356" />
+    <option name="width" value="734" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectView">
@@ -403,7 +403,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="596" y="24" width="1356" height="744" extended-state="4" />
+    <frame x="607" y="24" width="734" height="744" extended-state="4" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49293563" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -784,9 +784,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lecture_8/sqlite_demo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-          <folding />
+        <state relative-caret-position="105">
+          <caret line="7" column="88" lean-forward="false" selection-start-line="7" selection-start-column="88" selection-end-line="7" selection-end-column="88" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
