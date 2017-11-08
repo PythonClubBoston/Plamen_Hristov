@@ -30,7 +30,7 @@ insert into Employee (FirstName, LastName) values ('Plamen', 'Hristov');
 update 
     Employee
 set 
-    FirstName = 'pax'
+    FirstName = 'pax', LastName = 'Dimitrov'
 where 
     LastName = 'Hristov'
 
@@ -43,6 +43,14 @@ where
     FirstName = 'pax'
     and
         LastName = 'Hristov'
+
+// Create table with columns
+
+create table if not exists catalog (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    item_key varchar(200),
+    category varchar(200)
+)
 
   
 

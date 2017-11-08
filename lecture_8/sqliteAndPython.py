@@ -45,8 +45,6 @@ def main():
         print("2. Query all tasks")
         select_all_tasks(conn)
 
-def sales_csv_to_db_sales(csv: str, dbfile):
-    with open(csv):
 
 if __name__ == '__main__':
     main()
